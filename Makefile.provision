@@ -1,8 +1,0 @@
-default :
-	echo "Makesystem error"
-
-prune :
-	rm -rf $(RIOTBASE)
-
-provision :
-	git clone https://github.com/RIOT-OS/RIOT.git $(RIOTBASE) --single-branch --branch 2019.01

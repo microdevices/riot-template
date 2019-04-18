@@ -1,5 +1,5 @@
 # Name of application
-APPLICATION = riot_skeleton
+APPLICATION = riot_template
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= bluepill
@@ -40,5 +40,4 @@ USEMODULE += xtimer
 # to CXXEXFLAGS variable
 CXXEXFLAGS += -std=gnu++14
 
-include $(CURDIR)/../Makefile.provision
--include $(RIOTBASE)/Makefile.include
+include $(RIOTBASE)/Makefile.include
