@@ -1,5 +1,6 @@
 #include <board.h>
 #include <thread.h>
+#include <periph_conf.h>
 #include <periph/gpio.h>
 #include <xtimer.h>
 

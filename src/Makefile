@@ -1,8 +1,11 @@
 # Name of application
-APPLICATION = riot_template
+APPLICATION = riot-template
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= bluepill
+
+# Termonal
+PORT ?= COM1
 
 # This has to be the absolute path to the RIOT base directory:
 RIOTBASE ?= $(CURDIR)/../lib/RIOT
@@ -38,6 +41,7 @@ USEMODULE += xtimer
 
 # If you want to add some extra flags when compile c++ files, add these flags
 # to CXXEXFLAGS variable
-CXXEXFLAGS += -std=gnu++14
+
+CXXEXFLAGS += -std=gnu++11
 
 include $(RIOTBASE)/Makefile.include

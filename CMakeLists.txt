@@ -1,1511 +1,1524 @@
 # THIS FILE ONY FOR THE IDE AUTOCOMPLETE
 
-cmake_minimum_required(VERSION 3.13)
+project(riot-template)
 
-project(riot_app)
-
-set(CMAKE_CXX_STANDARD 14)
-
+cmake_minimum_required(VERSION 3.7)
+SET(CMAKE_SYSTEM_NAME Generic)
+SET(CMAKE_SYSTEM_VERSION 1)
+INCLUDE(CMakeForceCompiler)
 set(CMAKE_SH "CMAKE_SH-NOTFOUND")
 
-include_directories(include)
-include_directories(include/vendor/RIOT/boards/bluepill/include)
-include_directories(include/vendor/RIOT/boards/common)
-include_directories(include/vendor/RIOT/boards/common/stm32f103c8)
-include_directories(include/vendor/RIOT/boards/common/stm32f103c8/include)
-include_directories(include/vendor/RIOT/core/include)
-include_directories(include/vendor/RIOT/cpu/stm32_common/dist/clk_conf)
-include_directories(include/vendor/RIOT/cpu/stm32_common/include)
-include_directories(include/vendor/RIOT/cpu/stm32l1/include)
-include_directories(include/vendor/RIOT/cpu/stm32l1/include/vendor)
-include_directories(include/vendor/RIOT/drivers/adcxx1c/include)
-include_directories(include/vendor/RIOT/drivers/ads101x/include)
-include_directories(include/vendor/RIOT/drivers/adxl345/include)
-include_directories(include/vendor/RIOT/drivers/apa102/include)
-include_directories(include/vendor/RIOT/drivers/at86rf2xx/include)
-include_directories(include/vendor/RIOT/drivers/ata8520e/include)
-include_directories(include/vendor/RIOT/drivers/bh1750fvi/include)
-include_directories(include/vendor/RIOT/drivers/bmp180/include)
-include_directories(include/vendor/RIOT/drivers/bmx055)
-include_directories(include/vendor/RIOT/drivers/bmx055/include)
-include_directories(include/vendor/RIOT/drivers/bmx280/include)
-include_directories(include/vendor/RIOT/drivers/cc110x/include)
-include_directories(include/vendor/RIOT/drivers/cc2420/include)
-include_directories(include/vendor/RIOT/drivers/ccs811/include)
-include_directories(include/vendor/RIOT/drivers/dht/include)
-include_directories(include/vendor/RIOT/drivers/ds1307/include)
-include_directories(include/vendor/RIOT/drivers/ds18)
-include_directories(include/vendor/RIOT/drivers/ds18/include)
-include_directories(include/vendor/RIOT/drivers/dsp0401/include)
-include_directories(include/vendor/RIOT/drivers/dynamixel/include)
-include_directories(include/vendor/RIOT/drivers/enc28j60/include)
-include_directories(include/vendor/RIOT/drivers/encx24j600/include)
-include_directories(include/vendor/RIOT/drivers/feetech/include)
-include_directories(include/vendor/RIOT/drivers/fxos8700/include)
-include_directories(include/vendor/RIOT/drivers/grove_ledbar/include)
-include_directories(include/vendor/RIOT/drivers/hd44780/include)
-include_directories(include/vendor/RIOT/drivers/hdc1000/include)
-include_directories(include/vendor/RIOT/drivers/hts221/include)
-include_directories(include/vendor/RIOT/drivers/ina220/include)
-include_directories(include/vendor/RIOT/drivers/include)
-include_directories(include/vendor/RIOT/drivers/include/can)
-include_directories(include/vendor/RIOT/drivers/include/net)
-include_directories(include/vendor/RIOT/drivers/include/net/netdev)
-include_directories(include/vendor/RIOT/drivers/include/periph)
-include_directories(include/vendor/RIOT/drivers/include/saul)
-include_directories(include/vendor/RIOT/drivers/io1_xplained/include)
-include_directories(include/vendor/RIOT/drivers/isl29020/include)
-include_directories(include/vendor/RIOT/drivers/isl29125/include)
-include_directories(include/vendor/RIOT/drivers/jc42/include)
-include_directories(include/vendor/RIOT/drivers/kw2xrf/include)
-include_directories(include/vendor/RIOT/drivers/l3g4200d/include)
-include_directories(include/vendor/RIOT/drivers/lc709203f/include)
-include_directories(include/vendor/RIOT/drivers/lis2dh12)
-include_directories(include/vendor/RIOT/drivers/lis2dh12/include)
-include_directories(include/vendor/RIOT/drivers/lis3dh/include)
-include_directories(include/vendor/RIOT/drivers/lis3mdl/include)
-include_directories(include/vendor/RIOT/drivers/lpd8808/include)
-include_directories(include/vendor/RIOT/drivers/lps331ap/include)
-include_directories(include/vendor/RIOT/drivers/lsm303dlhc/include)
-include_directories(include/vendor/RIOT/drivers/lsm6dsl/include)
-include_directories(include/vendor/RIOT/drivers/mag3110/include)
-include_directories(include/vendor/RIOT/drivers/mma7660/include)
-include_directories(include/vendor/RIOT/drivers/mma8x5x/include)
-include_directories(include/vendor/RIOT/drivers/mpl3115a2/include)
-include_directories(include/vendor/RIOT/drivers/mpu9150/include)
-include_directories(include/vendor/RIOT/drivers/mrf24j40/include)
-include_directories(include/vendor/RIOT/drivers/my9221/include)
-include_directories(include/vendor/RIOT/drivers/nrf24l01p/include)
-include_directories(include/vendor/RIOT/drivers/pcd8544/include)
-include_directories(include/vendor/RIOT/drivers/pir/include)
-include_directories(include/vendor/RIOT/drivers/pulse_counter/include)
-include_directories(include/vendor/RIOT/drivers/rn2xx3/include)
-include_directories(include/vendor/RIOT/drivers/sdcard_spi/include)
-include_directories(include/vendor/RIOT/drivers/sht1x/include)
-include_directories(include/vendor/RIOT/drivers/sht3x/include)
-include_directories(include/vendor/RIOT/drivers/si114x/include)
-include_directories(include/vendor/RIOT/drivers/si70xx/include)
-include_directories(include/vendor/RIOT/drivers/soft_spi/include)
-include_directories(include/vendor/RIOT/drivers/srf04/include)
-include_directories(include/vendor/RIOT/drivers/sx127x/include)
-include_directories(include/vendor/RIOT/drivers/tcs37727/include)
-include_directories(include/vendor/RIOT/drivers/tmp006/include)
-include_directories(include/vendor/RIOT/drivers/tps6274x/include)
-include_directories(include/vendor/RIOT/drivers/tsl2561/include)
-include_directories(include/vendor/RIOT/drivers/tsl4531x/include)
-include_directories(include/vendor/RIOT/drivers/uart_half_duplex/include)
-include_directories(include/vendor/RIOT/drivers/vcnl40x0/include)
-include_directories(include/vendor/RIOT/drivers/veml6070/include)
-include_directories(include/vendor/RIOT/drivers/w5100/include)
-include_directories(include/vendor/RIOT/drivers/xbee/include)
-include_directories(include/vendor/RIOT/pkg/emb6/include)
-include_directories(include/vendor/RIOT/pkg/emb6/include/emb6)
-include_directories(include/vendor/RIOT/pkg/fatfs/fatfs_diskio/mtd/include)
-include_directories(include/vendor/RIOT/pkg/libb2)
-include_directories(include/vendor/RIOT/pkg/libb2/include)
-include_directories(include/vendor/RIOT/pkg/lua/contrib)
-include_directories(include/vendor/RIOT/pkg/lua/include)
-include_directories(include/vendor/RIOT/pkg/lwip/include)
-include_directories(include/vendor/RIOT/pkg/lwip/include/arch)
-include_directories(include/vendor/RIOT/pkg/lwip/include/lwip)
-include_directories(include/vendor/RIOT/pkg/lwip/include/lwip/netif)
-include_directories(include/vendor/RIOT/pkg/nimble/contrib/include)
-include_directories(include/vendor/RIOT/pkg/nordic_softdevice_ble/src)
-include_directories(include/vendor/RIOT/pkg/openthread/include)
-include_directories(include/vendor/RIOT/pkg/semtech-loramac/include)
-include_directories(include/vendor/RIOT/pkg/semtech-loramac/include/semtech-loramac)
-include_directories(include/vendor/RIOT/pkg/spiffs/include)
-include_directories(include/vendor/RIOT/pkg/tlsf/contrib/include)
-include_directories(include/vendor/RIOT/sys/arduino/include)
-include_directories(include/vendor/RIOT/sys/cpp11-compat/include)
-include_directories(include/vendor/RIOT/sys/cpp11-compat/include/riot)
-include_directories(include/vendor/RIOT/sys/cpp11-compat/include/riot/detail)
-include_directories(include/vendor/RIOT/sys/embunit)
-include_directories(include/vendor/RIOT/sys/include)
-include_directories(include/vendor/RIOT/sys/include/can)
-include_directories(include/vendor/RIOT/sys/include/can/conn)
-include_directories(include/vendor/RIOT/sys/include/checksum)
-include_directories(include/vendor/RIOT/sys/include/crypto)
-include_directories(include/vendor/RIOT/sys/include/crypto/modes)
-include_directories(include/vendor/RIOT/sys/include/ecc)
-include_directories(include/vendor/RIOT/sys/include/embUnit)
-include_directories(include/vendor/RIOT/sys/include/event)
-include_directories(include/vendor/RIOT/sys/include/fs)
-include_directories(include/vendor/RIOT/sys/include/hashes)
-include_directories(include/vendor/RIOT/sys/include/net)
-include_directories(include/vendor/RIOT/sys/include/net/bluetil)
-include_directories(include/vendor/RIOT/sys/include/net/cord)
-include_directories(include/vendor/RIOT/sys/include/net/ethernet)
-include_directories(include/vendor/RIOT/sys/include/net/fib)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/gomach)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/icmpv6)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/ipv6)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/ipv6/ext)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/lwmac)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/mac)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/netif)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/rpl)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/sixlowpan)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/nd)
-include_directories(include/vendor/RIOT/sys/include/net/gnrc/tcp)
-include_directories(include/vendor/RIOT/sys/include/net/iana)
-include_directories(include/vendor/RIOT/sys/include/net/ipv4)
-include_directories(include/vendor/RIOT/sys/include/net/ipv6)
-include_directories(include/vendor/RIOT/sys/include/net/ipv6/ext)
-include_directories(include/vendor/RIOT/sys/include/net/ppp)
-include_directories(include/vendor/RIOT/sys/include/net/rpl)
-include_directories(include/vendor/RIOT/sys/include/net/sixlowpan)
-include_directories(include/vendor/RIOT/sys/include/net/skald)
-include_directories(include/vendor/RIOT/sys/include/net/sock)
-include_directories(include/vendor/RIOT/sys/include/riotboot)
-include_directories(include/vendor/RIOT/sys/include/xtimer)
-include_directories(include/vendor/RIOT/sys/libc)
-include_directories(include/vendor/RIOT/sys/libc/include)
-include_directories(include/vendor/RIOT/sys/libc/include/sys)
-include_directories(include/vendor/RIOT/sys/log)
-include_directories(include/vendor/RIOT/sys/log/log_printfnoformat)
-include_directories(include/vendor/RIOT/sys/net/application_layer/emcute)
-include_directories(include/vendor/RIOT/sys/net/gnrc/link_layer/gomach/include)
-include_directories(include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/include)
-include_directories(include/vendor/RIOT/sys/net/gnrc/netif/include)
-include_directories(include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib)
-include_directories(include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag)
-include_directories(include/vendor/RIOT/sys/net/gnrc/routing/rpl)
-include_directories(include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal)
-include_directories(include/vendor/RIOT/sys/net/gnrc/sock/include)
-include_directories(include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal)
-include_directories(include/vendor/RIOT/sys/net/routing/nhdp)
-include_directories(include/vendor/RIOT/sys/oneway-malloc/include)
-include_directories(include/vendor/RIOT/sys/posix/include)
-include_directories(include/vendor/RIOT/sys/posix/include/arpa)
-include_directories(include/vendor/RIOT/sys/posix/include/netinet)
-include_directories(include/vendor/RIOT/sys/posix/include/sys)
-include_directories(include/vendor/RIOT/sys/posix/pthread/include)
-include_directories(include/vendor/RIOT/sys/quad_math)
-include_directories(include/vendor/RIOT/sys/random/fortuna)
-include_directories(include/vendor/RIOT/sys/random/tinymt32)
-include_directories(include/vendor/RIOT/sys/ubjson)
-include_directories(include/vendor/RIOT/cpu/cortexm_common/include)
-include_directories(include/vendor/RIOT/cpu/cortexm_common/include/vendor)
+# Cross compilers and tools
+SET(CMAKE_C_COMPILER_WORKS 1)
+SET(CMAKE_C_COMPILER arm-none-eabi-gcc)
+SET(CMAKE_CXX_COMPILER_WORKS 1)
+SET(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER  arm-none-eabi-gcc)
+set(CMAKE_AR arm-none-eabi-ar)
+set(CMAKE_OBJCOPY arm-none-eabi-objcopy)
+set(CMAKE_OBJDUMP arm-none-eabi-objdump)
+set(SIZE arm-none-eabi-size)
 
-add_executable(riot_app
-        include/vendor/RIOT/boards/bluepill/include/board.h
-        include/vendor/RIOT/boards/bluepill/include/gpio_params.h
-        include/vendor/RIOT/boards/bluepill/board.c
-        include/vendor/RIOT/boards/bluepill/doc.txt
-        include/vendor/RIOT/boards/common/stm32f103c8/include/periph_conf.h
-        include/vendor/RIOT/bootloaders/riotboot/main.c
-        include/vendor/RIOT/core/include/assert.h
-        include/vendor/RIOT/core/include/bitarithm.h
-        include/vendor/RIOT/core/include/byteorder.h
-        include/vendor/RIOT/core/include/cib.h
-        include/vendor/RIOT/core/include/clist.h
-        include/vendor/RIOT/core/include/cond.h
-        include/vendor/RIOT/core/include/debug.h
-        include/vendor/RIOT/core/include/irq.h
-        include/vendor/RIOT/core/include/kernel_defines.h
-        include/vendor/RIOT/core/include/kernel_init.h
-        include/vendor/RIOT/core/include/kernel_types.h
-        include/vendor/RIOT/core/include/lifo.h
-        include/vendor/RIOT/core/include/list.h
-        include/vendor/RIOT/core/include/log.h
-        include/vendor/RIOT/core/include/mbox.h
-        include/vendor/RIOT/core/include/msg.h
-        include/vendor/RIOT/core/include/mutex.h
-        include/vendor/RIOT/core/include/native_sched.h
-        include/vendor/RIOT/core/include/panic.h
-        include/vendor/RIOT/core/include/priority_queue.h
-        include/vendor/RIOT/core/include/ringbuffer.h
-        include/vendor/RIOT/core/include/rmutex.h
-        include/vendor/RIOT/core/include/sched.h
-        include/vendor/RIOT/core/include/thread.h
-        include/vendor/RIOT/core/include/thread_flags.h
-        include/vendor/RIOT/core/assert.c
-        include/vendor/RIOT/core/atomic_c11.c
-        include/vendor/RIOT/core/atomic_sync.c
-        include/vendor/RIOT/core/bitarithm.c
-        include/vendor/RIOT/core/clist.c
-        include/vendor/RIOT/core/cond.c
-        include/vendor/RIOT/core/kernel_init.c
-        include/vendor/RIOT/core/lifo.c
-        include/vendor/RIOT/core/mbox.c
-        include/vendor/RIOT/core/msg.c
-        include/vendor/RIOT/core/mutex.c
-        include/vendor/RIOT/core/panic.c
-        include/vendor/RIOT/core/priority_queue.c
-        include/vendor/RIOT/core/ringbuffer.c
-        include/vendor/RIOT/core/rmutex.c
-        include/vendor/RIOT/core/sched.c
-        include/vendor/RIOT/core/thread.c
-        include/vendor/RIOT/core/thread_flags.c
-        include/vendor/RIOT/cpu/stm32_common/dist/clk_conf/clk_conf.c
-        include/vendor/RIOT/cpu/stm32_common/dist/clk_conf/clk_conf.h
-        include/vendor/RIOT/cpu/stm32_common/dist/spi_divtable/spi_divtable.c
-        include/vendor/RIOT/cpu/stm32_common/dist/.gitignore
-        include/vendor/RIOT/cpu/stm32_common/include/cpu_conf_stm32_common.h
-        include/vendor/RIOT/cpu/stm32_common/include/periph_cpu_common.h
-        include/vendor/RIOT/cpu/stm32_common/include/stmclk.h
-        include/vendor/RIOT/cpu/stm32_common/ldscripts/stm32_common.ld
-        include/vendor/RIOT/cpu/stm32_common/periph/dac.c
-        include/vendor/RIOT/cpu/stm32_common/periph/dma.c
-        include/vendor/RIOT/cpu/stm32_common/periph/eeprom.c
-        include/vendor/RIOT/cpu/stm32_common/periph/flash_common.c
-        include/vendor/RIOT/cpu/stm32_common/periph/flashpage.c
-        include/vendor/RIOT/cpu/stm32_common/periph/gpio.c
-        include/vendor/RIOT/cpu/stm32_common/periph/hwrng.c
-        include/vendor/RIOT/cpu/stm32_common/periph/i2c_1.c
-        include/vendor/RIOT/cpu/stm32_common/periph/i2c_2.c
-        include/vendor/RIOT/cpu/stm32_common/periph/pm.c
-        include/vendor/RIOT/cpu/stm32_common/periph/pwm.c
-        include/vendor/RIOT/cpu/stm32_common/periph/qdec.c
-        include/vendor/RIOT/cpu/stm32_common/periph/rtc.c
-        include/vendor/RIOT/cpu/stm32_common/periph/rtt.c
-        include/vendor/RIOT/cpu/stm32_common/periph/spi.c
-        include/vendor/RIOT/cpu/stm32_common/periph/timer.c
-        include/vendor/RIOT/cpu/stm32_common/periph/uart.c
-        include/vendor/RIOT/cpu/stm32_common/cpu_common.c
-        include/vendor/RIOT/cpu/stm32_common/cpu_init.c
-        include/vendor/RIOT/cpu/stm32_common/stmclk.c
-        include/vendor/RIOT/cpu/stm32_common/stmclk_common.c
-        include/vendor/RIOT/cpu/stm32_common/stmclk_l0l1.c
-        include/vendor/RIOT/cpu/stm32l1/include/vendor/stm32l1xx.h
-        include/vendor/RIOT/cpu/stm32l1/include/cpu_conf.h
-        include/vendor/RIOT/cpu/stm32l1/include/periph_cpu.h
-        include/vendor/RIOT/cpu/stm32l1/periph/adc.c
-        include/vendor/RIOT/cpu/stm32l1/vectors.c
-        include/vendor/RIOT/drivers/adcxx1c/include/adcxx1c_params.h
-        include/vendor/RIOT/drivers/adcxx1c/include/adcxx1c_regs.h
-        include/vendor/RIOT/drivers/adcxx1c/adcxx1c.c
-        include/vendor/RIOT/drivers/adcxx1c/adcxx1c_saul.c
-        include/vendor/RIOT/drivers/ads101x/include/ads101x_params.h
-        include/vendor/RIOT/drivers/ads101x/include/ads101x_regs.h
-        include/vendor/RIOT/drivers/ads101x/ads101x.c
-        include/vendor/RIOT/drivers/ads101x/ads101x_saul.c
-        include/vendor/RIOT/drivers/adt7310/adt7310.c
-        include/vendor/RIOT/drivers/adxl345/include/adxl345_params.h
-        include/vendor/RIOT/drivers/adxl345/include/adxl345_regs.h
-        include/vendor/RIOT/drivers/adxl345/adxl345.c
-        include/vendor/RIOT/drivers/adxl345/adxl345_saul.c
-        include/vendor/RIOT/drivers/apa102/include/apa102_params.h
-        include/vendor/RIOT/drivers/apa102/apa102.c
-        include/vendor/RIOT/drivers/at/at.c
-        include/vendor/RIOT/drivers/at30tse75x/at30tse75x.c
-        include/vendor/RIOT/drivers/at86rf2xx/include/at86rf2xx_internal.h
-        include/vendor/RIOT/drivers/at86rf2xx/include/at86rf2xx_netdev.h
-        include/vendor/RIOT/drivers/at86rf2xx/include/at86rf2xx_params.h
-        include/vendor/RIOT/drivers/at86rf2xx/include/at86rf2xx_registers.h
-        include/vendor/RIOT/drivers/at86rf2xx/at86rf2xx.c
-        include/vendor/RIOT/drivers/at86rf2xx/at86rf2xx_getset.c
-        include/vendor/RIOT/drivers/at86rf2xx/at86rf2xx_internal.c
-        include/vendor/RIOT/drivers/at86rf2xx/at86rf2xx_netdev.c
-        include/vendor/RIOT/drivers/ata8520e/include/ata8520e_internals.h
-        include/vendor/RIOT/drivers/ata8520e/include/ata8520e_params.h
-        include/vendor/RIOT/drivers/ata8520e/ata8520e.c
-        include/vendor/RIOT/drivers/bh1750fvi/include/bh1750fvi_internal.h
-        include/vendor/RIOT/drivers/bh1750fvi/include/bh1750fvi_params.h
-        include/vendor/RIOT/drivers/bh1750fvi/bh1750fvi.c
-        include/vendor/RIOT/drivers/bmp180/include/bmp180_internals.h
-        include/vendor/RIOT/drivers/bmp180/include/bmp180_params.h
-        include/vendor/RIOT/drivers/bmp180/bmp180.c
-        include/vendor/RIOT/drivers/bmp180/bmp180_saul.c
-        include/vendor/RIOT/drivers/bmx055/include/bmx055_params.h
-        include/vendor/RIOT/drivers/bmx055/bmx055.c
-        include/vendor/RIOT/drivers/bmx055/bmx055_internal.h
-        include/vendor/RIOT/drivers/bmx055/bmx055_saul.c
-        include/vendor/RIOT/drivers/bmx280/include/bmx280_internals.h
-        include/vendor/RIOT/drivers/bmx280/include/bmx280_params.h
-        include/vendor/RIOT/drivers/bmx280/bmx280.c
-        include/vendor/RIOT/drivers/bmx280/bmx280_saul.c
-        include/vendor/RIOT/drivers/can_trx/can_trx.c
-        include/vendor/RIOT/drivers/cc110x/gnrc_cc110x/gnrc_cc110x.c
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-defaultsettings.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-defines.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-interface.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-internal.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-netdev.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x-spi.h
-        include/vendor/RIOT/drivers/cc110x/include/cc110x_params.h
-        include/vendor/RIOT/drivers/cc110x/include/gnrc_netif_cc110x.h
-        include/vendor/RIOT/drivers/cc110x/cc110x-defaultsettings.c
-        include/vendor/RIOT/drivers/cc110x/cc110x-netdev.c
-        include/vendor/RIOT/drivers/cc110x/cc110x-rxtx.c
-        include/vendor/RIOT/drivers/cc110x/cc110x-spi.c
-        include/vendor/RIOT/drivers/cc110x/cc110x.c
-        include/vendor/RIOT/drivers/cc1xxx_common/gnrc_netif_cc1xxx.c
-        include/vendor/RIOT/drivers/cc2420/include/cc2420_internal.h
-        include/vendor/RIOT/drivers/cc2420/include/cc2420_netdev.h
-        include/vendor/RIOT/drivers/cc2420/include/cc2420_params.h
-        include/vendor/RIOT/drivers/cc2420/include/cc2420_registers.h
-        include/vendor/RIOT/drivers/cc2420/cc2420.c
-        include/vendor/RIOT/drivers/cc2420/cc2420_getset.c
-        include/vendor/RIOT/drivers/cc2420/cc2420_internal.c
-        include/vendor/RIOT/drivers/cc2420/cc2420_netdev.c
-        include/vendor/RIOT/drivers/ccs811/include/ccs811_params.h
-        include/vendor/RIOT/drivers/ccs811/include/ccs811_regs.h
-        include/vendor/RIOT/drivers/ccs811/ccs811.c
-        include/vendor/RIOT/drivers/ccs811/ccs811_saul.c
-        include/vendor/RIOT/drivers/dht/include/dht_params.h
-        include/vendor/RIOT/drivers/dht/dht.c
-        include/vendor/RIOT/drivers/dht/dht_saul.c
-        include/vendor/RIOT/drivers/ds1307/include/ds1307_internal.h
-        include/vendor/RIOT/drivers/ds1307/include/ds1307_params.h
-        include/vendor/RIOT/drivers/ds1307/ds1307.c
-        include/vendor/RIOT/drivers/ds18/include/ds18_params.h
-        include/vendor/RIOT/drivers/ds18/ds18.c
-        include/vendor/RIOT/drivers/ds18/ds18_internal.h
-        include/vendor/RIOT/drivers/ds18/ds18_saul.c
-        include/vendor/RIOT/drivers/dsp0401/include/dsp0401_params.h
-        include/vendor/RIOT/drivers/dsp0401/dsp0401.c
-        include/vendor/RIOT/drivers/dynamixel/include/dynamixel_crc.h
-        include/vendor/RIOT/drivers/dynamixel/include/dynamixel_protocol.h
-        include/vendor/RIOT/drivers/dynamixel/include/dynamixel_reader.h
-        include/vendor/RIOT/drivers/dynamixel/include/dynamixel_writer.h
-        include/vendor/RIOT/drivers/dynamixel/crc.c
-        include/vendor/RIOT/drivers/dynamixel/dynamixel.c
-        include/vendor/RIOT/drivers/dynamixel/reader.c
-        include/vendor/RIOT/drivers/dynamixel/writer.c
-        include/vendor/RIOT/drivers/enc28j60/include/enc28j60_params.h
-        include/vendor/RIOT/drivers/enc28j60/include/enc28j60_regs.h
-        include/vendor/RIOT/drivers/enc28j60/enc28j60.c
-        include/vendor/RIOT/drivers/encx24j600/include/encx24j600_defines.h
-        include/vendor/RIOT/drivers/encx24j600/include/encx24j600_internal.h
-        include/vendor/RIOT/drivers/encx24j600/encx24j600.c
-        include/vendor/RIOT/drivers/ethos/ethos.c
-        include/vendor/RIOT/drivers/feetech/include/feetech_protocol.h
-        include/vendor/RIOT/drivers/feetech/include/feetech_reader.h
-        include/vendor/RIOT/drivers/feetech/include/feetech_writer.h
-        include/vendor/RIOT/drivers/feetech/feetech.c
-        include/vendor/RIOT/drivers/feetech/reader.c
-        include/vendor/RIOT/drivers/feetech/writer.c
-        include/vendor/RIOT/drivers/fxos8700/include/fxos8700_params.h
-        include/vendor/RIOT/drivers/fxos8700/include/fxos8700_regs.h
-        include/vendor/RIOT/drivers/fxos8700/fxos8700.c
-        include/vendor/RIOT/drivers/fxos8700/fxos8700_saul.c
-        include/vendor/RIOT/drivers/grove_ledbar/include/grove_ledbar_params.h
-        include/vendor/RIOT/drivers/grove_ledbar/grove_ledbar.c
-        include/vendor/RIOT/drivers/grove_ledbar/grove_ledbar_saul.c
-        include/vendor/RIOT/drivers/hd44780/include/hd44780_internal.h
-        include/vendor/RIOT/drivers/hd44780/hd44780.c
-        include/vendor/RIOT/drivers/hdc1000/include/hdc1000_params.h
-        include/vendor/RIOT/drivers/hdc1000/include/hdc1000_regs.h
-        include/vendor/RIOT/drivers/hdc1000/hdc1000.c
-        include/vendor/RIOT/drivers/hdc1000/hdc1000_saul.c
-        include/vendor/RIOT/drivers/hih6130/hih6130.c
-        include/vendor/RIOT/drivers/hts221/include/hts221_params.h
-        include/vendor/RIOT/drivers/hts221/include/hts221_regs.h
-        include/vendor/RIOT/drivers/hts221/hts221.c
-        include/vendor/RIOT/drivers/hts221/hts221_saul.c
-        include/vendor/RIOT/drivers/ina220/include/ina220-regs.h
-        include/vendor/RIOT/drivers/ina220/ina220.c
-        include/vendor/RIOT/drivers/include/can/can_trx.h
-        include/vendor/RIOT/drivers/include/can/candev.h
-        include/vendor/RIOT/drivers/include/net/netdev/ble.h
-        include/vendor/RIOT/drivers/include/net/netdev/eth.h
-        include/vendor/RIOT/drivers/include/net/netdev/ieee802154.h
-        include/vendor/RIOT/drivers/include/net/netdev/layer.h
-        include/vendor/RIOT/drivers/include/net/netdev.h
-        include/vendor/RIOT/drivers/include/periph/adc.h
-        include/vendor/RIOT/drivers/include/periph/cpuid.h
-        include/vendor/RIOT/drivers/include/periph/dac.h
-        include/vendor/RIOT/drivers/include/periph/dev_enums.h
-        include/vendor/RIOT/drivers/include/periph/eeprom.h
-        include/vendor/RIOT/drivers/include/periph/flashpage.h
-        include/vendor/RIOT/drivers/include/periph/gpio.h
-        include/vendor/RIOT/drivers/include/periph/hwrng.h
-        include/vendor/RIOT/drivers/include/periph/i2c.h
-        include/vendor/RIOT/drivers/include/periph/init.h
-        include/vendor/RIOT/drivers/include/periph/pm.h
-        include/vendor/RIOT/drivers/include/periph/pwm.h
-        include/vendor/RIOT/drivers/include/periph/qdec.h
-        include/vendor/RIOT/drivers/include/periph/rtc.h
-        include/vendor/RIOT/drivers/include/periph/rtt.h
-        include/vendor/RIOT/drivers/include/periph/spi.h
-        include/vendor/RIOT/drivers/include/periph/timer.h
-        include/vendor/RIOT/drivers/include/periph/uart.h
-        include/vendor/RIOT/drivers/include/saul/periph.h
-        include/vendor/RIOT/drivers/include/adcxx1c.h
-        include/vendor/RIOT/drivers/include/ads101x.h
-        include/vendor/RIOT/drivers/include/adt7310.h
-        include/vendor/RIOT/drivers/include/adxl345.h
-        include/vendor/RIOT/drivers/include/apa102.h
-        include/vendor/RIOT/drivers/include/at.h
-        include/vendor/RIOT/drivers/include/at30tse75x.h
-        include/vendor/RIOT/drivers/include/at86rf2xx.h
-        include/vendor/RIOT/drivers/include/ata8520e.h
-        include/vendor/RIOT/drivers/include/bh1750fvi.h
-        include/vendor/RIOT/drivers/include/bmp180.h
-        include/vendor/RIOT/drivers/include/bmx055.h
-        include/vendor/RIOT/drivers/include/bmx280.h
-        include/vendor/RIOT/drivers/include/cc110x.h
-        include/vendor/RIOT/drivers/include/cc1xxx_common.h
-        include/vendor/RIOT/drivers/include/cc2420.h
-        include/vendor/RIOT/drivers/include/ccs811.h
-        include/vendor/RIOT/drivers/include/dht.h
-        include/vendor/RIOT/drivers/include/diskio.h
-        include/vendor/RIOT/drivers/include/ds1307.h
-        include/vendor/RIOT/drivers/include/ds18.h
-        include/vendor/RIOT/drivers/include/dsp0401.h
-        include/vendor/RIOT/drivers/include/dynamixel.h
-        include/vendor/RIOT/drivers/include/enc28j60.h
-        include/vendor/RIOT/drivers/include/encx24j600.h
-        include/vendor/RIOT/drivers/include/ethos.h
-        include/vendor/RIOT/drivers/include/feetech.h
-        include/vendor/RIOT/drivers/include/flashrom.h
-        include/vendor/RIOT/drivers/include/fxos8700.h
-        include/vendor/RIOT/drivers/include/grove_ledbar.h
-        include/vendor/RIOT/drivers/include/hd44780.h
-        include/vendor/RIOT/drivers/include/hdc1000.h
-        include/vendor/RIOT/drivers/include/hih6130.h
-        include/vendor/RIOT/drivers/include/hts221.h
-        include/vendor/RIOT/drivers/include/ina220.h
-        include/vendor/RIOT/drivers/include/io1_xplained.h
-        include/vendor/RIOT/drivers/include/isl29020.h
-        include/vendor/RIOT/drivers/include/isl29125.h
-        include/vendor/RIOT/drivers/include/jc42.h
-        include/vendor/RIOT/drivers/include/kw2xrf.h
-        include/vendor/RIOT/drivers/include/l3g4200d.h
-        include/vendor/RIOT/drivers/include/lc709203f.h
-        include/vendor/RIOT/drivers/include/led.h
-        include/vendor/RIOT/drivers/include/lis2dh12.h
-        include/vendor/RIOT/drivers/include/lis3dh.h
-        include/vendor/RIOT/drivers/include/lis3mdl.h
-        include/vendor/RIOT/drivers/include/lpd8808.h
-        include/vendor/RIOT/drivers/include/lps331ap.h
-        include/vendor/RIOT/drivers/include/lsm303dlhc.h
-        include/vendor/RIOT/drivers/include/lsm6dsl.h
-        include/vendor/RIOT/drivers/include/mag3110.h
-        include/vendor/RIOT/drivers/include/mma7660.h
-        include/vendor/RIOT/drivers/include/mma8x5x.h
-        include/vendor/RIOT/drivers/include/mpl3115a2.h
-        include/vendor/RIOT/drivers/include/mpu9150.h
-        include/vendor/RIOT/drivers/include/mq3.h
-        include/vendor/RIOT/drivers/include/mrf24j40.h
-        include/vendor/RIOT/drivers/include/mtd.h
-        include/vendor/RIOT/drivers/include/mtd_sdcard.h
-        include/vendor/RIOT/drivers/include/mtd_spi_nor.h
-        include/vendor/RIOT/drivers/include/my9221.h
-        include/vendor/RIOT/drivers/include/nrf24l01p.h
-        include/vendor/RIOT/drivers/include/nvram-spi.h
-        include/vendor/RIOT/drivers/include/nvram.h
-        include/vendor/RIOT/drivers/include/pcd8544.h
-        include/vendor/RIOT/drivers/include/pir.h
-        include/vendor/RIOT/drivers/include/pn532.h
-        include/vendor/RIOT/drivers/include/pulse_counter.h
-        include/vendor/RIOT/drivers/include/rgbled.h
-        include/vendor/RIOT/drivers/include/rn2xx3.h
-        include/vendor/RIOT/drivers/include/saul.h
-        include/vendor/RIOT/drivers/include/sdcard_spi.h
-        include/vendor/RIOT/drivers/include/servo.h
-        include/vendor/RIOT/drivers/include/sht1x.h
-        include/vendor/RIOT/drivers/include/sht3x.h
-        include/vendor/RIOT/drivers/include/si114x.h
-        include/vendor/RIOT/drivers/include/si70xx.h
-        include/vendor/RIOT/drivers/include/slipdev.h
-        include/vendor/RIOT/drivers/include/soft_spi.h
-        include/vendor/RIOT/drivers/include/srf02.h
-        include/vendor/RIOT/drivers/include/srf04.h
-        include/vendor/RIOT/drivers/include/srf08.h
-        include/vendor/RIOT/drivers/include/sx127x.h
-        include/vendor/RIOT/drivers/include/tcs37727.h
-        include/vendor/RIOT/drivers/include/tja1042.h
-        include/vendor/RIOT/drivers/include/tmp006.h
-        include/vendor/RIOT/drivers/include/tps6274x.h
-        include/vendor/RIOT/drivers/include/tsl2561.h
-        include/vendor/RIOT/drivers/include/tsl4531x.h
-        include/vendor/RIOT/drivers/include/vcnl40x0.h
-        include/vendor/RIOT/drivers/include/veml6070.h
-        include/vendor/RIOT/drivers/include/w5100.h
-        include/vendor/RIOT/drivers/include/xbee.h
-        include/vendor/RIOT/drivers/io1_xplained/include/io1_xplained_internals.h
-        include/vendor/RIOT/drivers/io1_xplained/include/io1_xplained_params.h
-        include/vendor/RIOT/drivers/io1_xplained/io1_xplained.c
-        include/vendor/RIOT/drivers/io1_xplained/io1_xplained_saul.c
-        include/vendor/RIOT/drivers/isl29020/include/isl29020-internal.h
-        include/vendor/RIOT/drivers/isl29020/include/isl29020_params.h
-        include/vendor/RIOT/drivers/isl29020/isl29020.c
-        include/vendor/RIOT/drivers/isl29020/isl29020_saul.c
-        include/vendor/RIOT/drivers/isl29125/include/isl29125-internal.h
-        include/vendor/RIOT/drivers/isl29125/include/isl29125_params.h
-        include/vendor/RIOT/drivers/isl29125/isl29125.c
-        include/vendor/RIOT/drivers/jc42/include/jc42_internal.h
-        include/vendor/RIOT/drivers/jc42/include/jc42_params.h
-        include/vendor/RIOT/drivers/jc42/jc42.c
-        include/vendor/RIOT/drivers/jc42/jc42_saul.c
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_getset.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_intern.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_netdev.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_params.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_reg.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_spi.h
-        include/vendor/RIOT/drivers/kw2xrf/include/kw2xrf_tm.h
-        include/vendor/RIOT/drivers/kw2xrf/include/overwrites.h
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf.c
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf_getset.c
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf_intern.c
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf_netdev.c
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf_spi.c
-        include/vendor/RIOT/drivers/kw2xrf/kw2xrf_tm.c
-        include/vendor/RIOT/drivers/l3g4200d/include/l3g4200d-regs.h
-        include/vendor/RIOT/drivers/l3g4200d/include/l3g4200d_params.h
-        include/vendor/RIOT/drivers/l3g4200d/l3g4200d.c
-        include/vendor/RIOT/drivers/l3g4200d/l3g4200d_saul.c
-        include/vendor/RIOT/drivers/lc709203f/include/lc709203f_params.h
-        include/vendor/RIOT/drivers/lc709203f/lc709203f.c
-        include/vendor/RIOT/drivers/lis2dh12/include/lis2dh12_params.h
-        include/vendor/RIOT/drivers/lis2dh12/lis2dh12.c
-        include/vendor/RIOT/drivers/lis2dh12/lis2dh12_internal.h
-        include/vendor/RIOT/drivers/lis2dh12/lis2dh12_saul.c
-        include/vendor/RIOT/drivers/lis3dh/include/lis3dh_params.h
-        include/vendor/RIOT/drivers/lis3dh/lis3dh.c
-        include/vendor/RIOT/drivers/lis3dh/lis3dh_saul.c
-        include/vendor/RIOT/drivers/lis3mdl/include/lis3mdl-internal.h
-        include/vendor/RIOT/drivers/lis3mdl/include/lis3mdl_params.h
-        include/vendor/RIOT/drivers/lis3mdl/lis3mdl.c
-        include/vendor/RIOT/drivers/lis3mdl/lis3mdl_saul.c
-        include/vendor/RIOT/drivers/lpd8808/include/lpd8808_params.h
-        include/vendor/RIOT/drivers/lpd8808/lpd8808.c
-        include/vendor/RIOT/drivers/lps331ap/include/lps331ap-internal.h
-        include/vendor/RIOT/drivers/lps331ap/include/lps331ap_params.h
-        include/vendor/RIOT/drivers/lps331ap/lps331ap.c
-        include/vendor/RIOT/drivers/lps331ap/lps331ap_saul.c
-        include/vendor/RIOT/drivers/lsm303dlhc/include/lsm303dlhc-internal.h
-        include/vendor/RIOT/drivers/lsm303dlhc/include/lsm303dlhc_params.h
-        include/vendor/RIOT/drivers/lsm303dlhc/lsm303dlhc.c
-        include/vendor/RIOT/drivers/lsm303dlhc/lsm303dlhc_saul.c
-        include/vendor/RIOT/drivers/lsm6dsl/include/lsm6dsl_internal.h
-        include/vendor/RIOT/drivers/lsm6dsl/include/lsm6dsl_params.h
-        include/vendor/RIOT/drivers/lsm6dsl/lsm6dsl.c
-        include/vendor/RIOT/drivers/lsm6dsl/lsm6dsl_saul.c
-        include/vendor/RIOT/drivers/mag3110/include/mag3110_params.h
-        include/vendor/RIOT/drivers/mag3110/include/mag3110_reg.h
-        include/vendor/RIOT/drivers/mag3110/mag3110.c
-        include/vendor/RIOT/drivers/mag3110/mag3110_saul.c
-        include/vendor/RIOT/drivers/mma7660/include/mma7660_params.h
-        include/vendor/RIOT/drivers/mma7660/include/mma7660_reg.h
-        include/vendor/RIOT/drivers/mma7660/mma7660.c
-        include/vendor/RIOT/drivers/mma7660/mma7660_saul.c
-        include/vendor/RIOT/drivers/mma8x5x/include/mma8x5x_params.h
-        include/vendor/RIOT/drivers/mma8x5x/include/mma8x5x_regs.h
-        include/vendor/RIOT/drivers/mma8x5x/mma8x5x.c
-        include/vendor/RIOT/drivers/mma8x5x/mma8x5x_saul.c
-        include/vendor/RIOT/drivers/mpl3115a2/include/mpl3115a2_params.h
-        include/vendor/RIOT/drivers/mpl3115a2/include/mpl3115a2_reg.h
-        include/vendor/RIOT/drivers/mpl3115a2/mpl3115a2.c
-        include/vendor/RIOT/drivers/mpl3115a2/mpl3115a2_saul.c
-        include/vendor/RIOT/drivers/mpu9150/include/mpu9150-regs.h
-        include/vendor/RIOT/drivers/mpu9150/include/mpu9150_params.h
-        include/vendor/RIOT/drivers/mpu9150/mpu9150.c
-        include/vendor/RIOT/drivers/mpu9150/mpu9150_saul.c
-        include/vendor/RIOT/drivers/mq3/mq3.c
-        include/vendor/RIOT/drivers/mrf24j40/include/mrf24j40_internal.h
-        include/vendor/RIOT/drivers/mrf24j40/include/mrf24j40_netdev.h
-        include/vendor/RIOT/drivers/mrf24j40/include/mrf24j40_params.h
-        include/vendor/RIOT/drivers/mrf24j40/include/mrf24j40_registers.h
-        include/vendor/RIOT/drivers/mrf24j40/mrf24j40.c
-        include/vendor/RIOT/drivers/mrf24j40/mrf24j40_getset.c
-        include/vendor/RIOT/drivers/mrf24j40/mrf24j40_internal.c
-        include/vendor/RIOT/drivers/mrf24j40/mrf24j40_netdev.c
-        include/vendor/RIOT/drivers/mtd/mtd-vfs.c
-        include/vendor/RIOT/drivers/mtd/mtd.c
-        include/vendor/RIOT/drivers/mtd_sdcard/mtd_sdcard.c
-        include/vendor/RIOT/drivers/mtd_spi_nor/mtd_spi_nor.c
-        include/vendor/RIOT/drivers/mtd_spi_nor/mtd_spi_nor_configs.c
-        include/vendor/RIOT/drivers/my9221/include/my9221_internal.h
-        include/vendor/RIOT/drivers/my9221/my9221.c
-        include/vendor/RIOT/drivers/netdev_eth/netdev_eth.c
-        include/vendor/RIOT/drivers/netdev_ieee802154/netdev_ieee802154.c
-        include/vendor/RIOT/drivers/netdev_layer/netdev_layer.c
-        include/vendor/RIOT/drivers/nrf24l01p/include/nrf24l01p_settings.h
-        include/vendor/RIOT/drivers/nrf24l01p/nrf24l01p.c
-        include/vendor/RIOT/drivers/nvram/nvram-vfs.c
-        include/vendor/RIOT/drivers/nvram_spi/nvram-spi.c
-        include/vendor/RIOT/drivers/pcd8544/include/pcd8544_internal.h
-        include/vendor/RIOT/drivers/pcd8544/pcd8544.c
-        include/vendor/RIOT/drivers/periph_common/cpuid.c
-        include/vendor/RIOT/drivers/periph_common/eeprom.c
-        include/vendor/RIOT/drivers/periph_common/flashpage.c
-        include/vendor/RIOT/drivers/periph_common/i2c.c
-        include/vendor/RIOT/drivers/periph_common/init.c
-        include/vendor/RIOT/drivers/periph_common/pm.c
-        include/vendor/RIOT/drivers/periph_common/spi.c
-        include/vendor/RIOT/drivers/periph_common/timer.c
-        include/vendor/RIOT/drivers/pir/include/pir_params.h
-        include/vendor/RIOT/drivers/pir/pir.c
-        include/vendor/RIOT/drivers/pir/pir_saul.c
-        include/vendor/RIOT/drivers/pn532/pn532.c
-        include/vendor/RIOT/drivers/pulse_counter/include/pulse_counter_params.h
-        include/vendor/RIOT/drivers/pulse_counter/pulse_counter.c
-        include/vendor/RIOT/drivers/pulse_counter/pulse_counter_saul.c
-        include/vendor/RIOT/drivers/rgbled/rgbled.c
-        include/vendor/RIOT/drivers/rn2xx3/include/rn2xx3_internal.h
-        include/vendor/RIOT/drivers/rn2xx3/include/rn2xx3_params.h
-        include/vendor/RIOT/drivers/rn2xx3/rn2xx3.c
-        include/vendor/RIOT/drivers/rn2xx3/rn2xx3_getset.c
-        include/vendor/RIOT/drivers/rn2xx3/rn2xx3_internal.c
-        include/vendor/RIOT/drivers/saul/adc_saul.c
-        include/vendor/RIOT/drivers/saul/gpio_saul.c
-        include/vendor/RIOT/drivers/saul/saul.c
-        include/vendor/RIOT/drivers/saul/saul_str.c
-        include/vendor/RIOT/drivers/sdcard_spi/include/sdcard_spi_internal.h
-        include/vendor/RIOT/drivers/sdcard_spi/include/sdcard_spi_params.h
-        include/vendor/RIOT/drivers/sdcard_spi/sdcard_spi.c
-        include/vendor/RIOT/drivers/servo/servo.c
-        include/vendor/RIOT/drivers/sht1x/include/sht1x_defines.h
-        include/vendor/RIOT/drivers/sht1x/include/sht1x_params.h
-        include/vendor/RIOT/drivers/sht1x/sht1x.c
-        include/vendor/RIOT/drivers/sht1x/sht1x_saul.c
-        include/vendor/RIOT/drivers/sht3x/include/sht3x_params.h
-        include/vendor/RIOT/drivers/sht3x/sht3x.c
-        include/vendor/RIOT/drivers/sht3x/sht3x_saul.c
-        include/vendor/RIOT/drivers/si114x/include/si114x_internals.h
-        include/vendor/RIOT/drivers/si114x/include/si114x_params.h
-        include/vendor/RIOT/drivers/si114x/si114x.c
-        include/vendor/RIOT/drivers/si114x/si114x_saul.c
-        include/vendor/RIOT/drivers/si70xx/include/si70xx_internals.h
-        include/vendor/RIOT/drivers/si70xx/include/si70xx_params.h
-        include/vendor/RIOT/drivers/si70xx/si70xx.c
-        include/vendor/RIOT/drivers/si70xx/si70xx_saul.c
-        include/vendor/RIOT/drivers/slipdev/slipdev.c
-        include/vendor/RIOT/drivers/soft_spi/include/soft_spi_params.h
-        include/vendor/RIOT/drivers/soft_spi/soft_spi.c
-        include/vendor/RIOT/drivers/srf02/srf02.c
-        include/vendor/RIOT/drivers/srf04/include/srf04_params.h
-        include/vendor/RIOT/drivers/srf04/srf04.c
-        include/vendor/RIOT/drivers/srf08/srf08.c
-        include/vendor/RIOT/drivers/sx127x/include/sx127x_internal.h
-        include/vendor/RIOT/drivers/sx127x/include/sx127x_netdev.h
-        include/vendor/RIOT/drivers/sx127x/include/sx127x_params.h
-        include/vendor/RIOT/drivers/sx127x/include/sx127x_registers.h
-        include/vendor/RIOT/drivers/sx127x/sx127x.c
-        include/vendor/RIOT/drivers/sx127x/sx127x_getset.c
-        include/vendor/RIOT/drivers/sx127x/sx127x_internal.c
-        include/vendor/RIOT/drivers/sx127x/sx127x_netdev.c
-        include/vendor/RIOT/drivers/tcs37727/include/tcs37727-internal.h
-        include/vendor/RIOT/drivers/tcs37727/include/tcs37727_params.h
-        include/vendor/RIOT/drivers/tcs37727/tcs37727.c
-        include/vendor/RIOT/drivers/tcs37727/tcs37727_saul.c
-        include/vendor/RIOT/drivers/tja1042/tja1042.c
-        include/vendor/RIOT/drivers/tmp006/include/tmp006_params.h
-        include/vendor/RIOT/drivers/tmp006/include/tmp006_regs.h
-        include/vendor/RIOT/drivers/tmp006/tmp006.c
-        include/vendor/RIOT/drivers/tmp006/tmp006_saul.c
-        include/vendor/RIOT/drivers/tps6274x/include/tps6274x_params.h
-        include/vendor/RIOT/drivers/tps6274x/tps6274x.c
-        include/vendor/RIOT/drivers/tsl2561/include/tsl2561_internals.h
-        include/vendor/RIOT/drivers/tsl2561/include/tsl2561_params.h
-        include/vendor/RIOT/drivers/tsl2561/tsl2561.c
-        include/vendor/RIOT/drivers/tsl2561/tsl2561_saul.c
-        include/vendor/RIOT/drivers/tsl4531x/include/tsl4531x_internals.h
-        include/vendor/RIOT/drivers/tsl4531x/include/tsl4531x_params.h
-        include/vendor/RIOT/drivers/tsl4531x/tsl4531x.c
-        include/vendor/RIOT/drivers/tsl4531x/tsl4531x_saul.c
-        include/vendor/RIOT/drivers/uart_half_duplex/include/uart_half_duplex.h
-        include/vendor/RIOT/drivers/uart_half_duplex/uart_half_duplex.c
-        include/vendor/RIOT/drivers/vcnl40x0/include/vcnl40x0_internals.h
-        include/vendor/RIOT/drivers/vcnl40x0/include/vcnl40x0_params.h
-        include/vendor/RIOT/drivers/vcnl40x0/vcnl40x0.c
-        include/vendor/RIOT/drivers/vcnl40x0/vcnl40x0_saul.c
-        include/vendor/RIOT/drivers/veml6070/include/veml6070_params.h
-        include/vendor/RIOT/drivers/veml6070/veml6070.c
-        include/vendor/RIOT/drivers/veml6070/veml6070_saul.c
-        include/vendor/RIOT/drivers/w5100/include/w5100_params.h
-        include/vendor/RIOT/drivers/w5100/include/w5100_regs.h
-        include/vendor/RIOT/drivers/w5100/w5100.c
-        include/vendor/RIOT/drivers/xbee/include/gnrc_netif_xbee.h
-        include/vendor/RIOT/drivers/xbee/include/xbee_params.h
-        include/vendor/RIOT/drivers/xbee/gnrc_xbee.c
-        include/vendor/RIOT/drivers/xbee/xbee.c
-        include/vendor/RIOT/pkg/emb6/contrib/netdev/emb6_netdev.c
-        include/vendor/RIOT/pkg/emb6/contrib/sock/udp/emb6_sock_udp.c
-        include/vendor/RIOT/pkg/emb6/contrib/board_conf.c
-        include/vendor/RIOT/pkg/emb6/contrib/target.c
-        include/vendor/RIOT/pkg/emb6/include/emb6/netdev.h
-        include/vendor/RIOT/pkg/emb6/include/board_conf.h
-        include/vendor/RIOT/pkg/emb6/include/sock_types.h
-        include/vendor/RIOT/pkg/fatfs/fatfs_diskio/mtd/include/fatfs_diskio_mtd.h
-        include/vendor/RIOT/pkg/fatfs/fatfs_diskio/mtd/mtd_diskio.c
-        include/vendor/RIOT/pkg/fatfs/fatfs_vfs/fatfs_vfs.c
-        include/vendor/RIOT/pkg/libb2/include/config.h
-        include/vendor/RIOT/pkg/littlefs/fs/littlefs_fs.c
-        include/vendor/RIOT/pkg/lua/contrib/binsearch.c
-        include/vendor/RIOT/pkg/lua/contrib/binsearch.h
-        include/vendor/RIOT/pkg/lua/contrib/lua_loadlib.c
-        include/vendor/RIOT/pkg/lua/contrib/lua_run.c
-        include/vendor/RIOT/pkg/lua/include/lua_builtin.h
-        include/vendor/RIOT/pkg/lua/include/lua_loadlib.h
-        include/vendor/RIOT/pkg/lua/include/lua_run.h
-        include/vendor/RIOT/pkg/lwip/contrib/netdev/lwip_netdev.c
-        include/vendor/RIOT/pkg/lwip/contrib/sock/ip/lwip_sock_ip.c
-        include/vendor/RIOT/pkg/lwip/contrib/sock/tcp/lwip_sock_tcp.c
-        include/vendor/RIOT/pkg/lwip/contrib/sock/udp/lwip_sock_udp.c
-        include/vendor/RIOT/pkg/lwip/contrib/sock/lwip_sock.c
-        include/vendor/RIOT/pkg/lwip/contrib/lwip.c
-        include/vendor/RIOT/pkg/lwip/contrib/sys_arch.c
-        include/vendor/RIOT/pkg/lwip/include/arch/cc.h
-        include/vendor/RIOT/pkg/lwip/include/arch/sys_arch.h
-        include/vendor/RIOT/pkg/lwip/include/lwip/netif/netdev.h
-        include/vendor/RIOT/pkg/lwip/include/lwip/sock_internal.h
-        include/vendor/RIOT/pkg/lwip/include/lwip.h
-        include/vendor/RIOT/pkg/lwip/include/lwipopts.h
-        include/vendor/RIOT/pkg/lwip/include/sock_types.h
-        include/vendor/RIOT/pkg/nimble/contrib/include/nimble_riot.h
-        include/vendor/RIOT/pkg/nimble/contrib/nimble_riot.c
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/app_error.c
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/ble-core.c
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/ble-core.h
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/ble-mac.c
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/ble-mac.h
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/gnrc_nordic_ble_6lowpan.c
-        include/vendor/RIOT/pkg/nordic_softdevice_ble/src/gnrc_nordic_ble_6lowpan.h
-        include/vendor/RIOT/pkg/openthread/contrib/netdev/openthread_netdev.c
-        include/vendor/RIOT/pkg/openthread/contrib/openthread.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_alarm.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_diag.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_functions_wrapper.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_logging.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_misc.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_radio.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_random.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_settings.c
-        include/vendor/RIOT/pkg/openthread/contrib/platform_uart.c
-        include/vendor/RIOT/pkg/openthread/include/ot.h
-        include/vendor/RIOT/pkg/openthread/include/platform_config.h
-        include/vendor/RIOT/pkg/semtech-loramac/contrib/semtech_loramac.c
-        include/vendor/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_getset.c
-        include/vendor/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_radio.c
-        include/vendor/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_timer.c
-        include/vendor/RIOT/pkg/semtech-loramac/include/semtech-loramac/timer.h
-        include/vendor/RIOT/pkg/semtech-loramac/include/semtech_loramac.h
-        include/vendor/RIOT/pkg/spiffs/fs/spiffs_fs.c
-        include/vendor/RIOT/pkg/spiffs/include/spiffs_config.h
-        include/vendor/RIOT/pkg/tlsf/contrib/include/tlsf-malloc.h
-        include/vendor/RIOT/pkg/tlsf/contrib/tlsf-malloc.c
-        include/vendor/RIOT/pkg/u8g2/src/csrc/u8g2_riotos.c
-        include/vendor/RIOT/pkg/ucglib/src/csrc/ucg_riotos.c
-        include/vendor/RIOT/sys/analog_util/adc_util.c
-        include/vendor/RIOT/sys/analog_util/dac_util.c
-        include/vendor/RIOT/sys/arduino/include/arduino.hpp
-        include/vendor/RIOT/sys/arduino/include/serialport.hpp
-        include/vendor/RIOT/sys/arduino/base.cpp
-        include/vendor/RIOT/sys/arduino/serialport.cpp
-        include/vendor/RIOT/sys/auto_init/can/auto_init_can.c
-        include/vendor/RIOT/sys/auto_init/can/auto_init_can_native.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_at86rf2xx.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_cc110x.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_cc2420.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_cc2538_rf.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_enc28j60.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_encx24j600.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_ethos.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_kw2xrf.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_mrf24j40.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_netdev_tap.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_slipdev.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_socket_zep.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_sx127x.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_w5100.c
-        include/vendor/RIOT/sys/auto_init/netif/auto_init_xbee.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_adc.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_adcxx1c.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_ads101x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_adxl345.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_bmp180.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_bmx055.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_bmx280.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_ccs811.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_dht.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_ds18.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_fxos8700.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_gpio.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_grove_ledbar.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_hdc1000.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_hts221.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_io1_xplained.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_isl29020.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_jc42.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_l3g4200d.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lis2dh12.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lis3dh.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lis3mdl.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lps331ap.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lsm303dlhc.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_lsm6dsl.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_mag3110.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_mma7660.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_mma8x5x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_mpl3115a2.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_mpu9150.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_pir.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_pulse_counter.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_sht1x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_sht3x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_si114x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_si70xx.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_tcs37727.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_tmp006.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_tsl2561.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_tsl4531x.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_vcnl40x0.c
-        include/vendor/RIOT/sys/auto_init/saul/auto_init_veml6070.c
-        include/vendor/RIOT/sys/auto_init/storage/auto_init_sdcard_spi.c
-        include/vendor/RIOT/sys/auto_init/auto_init.c
-        include/vendor/RIOT/sys/base64/base64.c
-        include/vendor/RIOT/sys/benchmark/benchmark.c
-        include/vendor/RIOT/sys/bitfield/bitfield.c
-        include/vendor/RIOT/sys/bloom/bloom.c
-        include/vendor/RIOT/sys/can/conn/isotp.c
-        include/vendor/RIOT/sys/can/conn/raw.c
-        include/vendor/RIOT/sys/can/isotp/isotp.c
-        include/vendor/RIOT/sys/can/device.c
-        include/vendor/RIOT/sys/can/dll.c
-        include/vendor/RIOT/sys/can/pkt.c
-        include/vendor/RIOT/sys/can/router.c
-        include/vendor/RIOT/sys/cb_mux/cb_mux.c
-        include/vendor/RIOT/sys/checksum/crc16_ccitt.c
-        include/vendor/RIOT/sys/checksum/fletcher16.c
-        include/vendor/RIOT/sys/checksum/fletcher32.c
-        include/vendor/RIOT/sys/checksum/ucrc16.c
-        include/vendor/RIOT/sys/color/color.c
-        include/vendor/RIOT/sys/cpp11-compat/include/riot/detail/thread_util.hpp
-        include/vendor/RIOT/sys/cpp11-compat/include/riot/chrono.hpp
-        include/vendor/RIOT/sys/cpp11-compat/include/riot/condition_variable.hpp
-        include/vendor/RIOT/sys/cpp11-compat/include/riot/mutex.hpp
-        include/vendor/RIOT/sys/cpp11-compat/include/riot/thread.hpp
-        include/vendor/RIOT/sys/cpp11-compat/condition_variable.cpp
-        include/vendor/RIOT/sys/cpp11-compat/cppsupport.cpp
-        include/vendor/RIOT/sys/cpp11-compat/mutex.cpp
-        include/vendor/RIOT/sys/cpp11-compat/thread.cpp
-        include/vendor/RIOT/sys/crypto/modes/cbc.c
-        include/vendor/RIOT/sys/crypto/modes/ccm.c
-        include/vendor/RIOT/sys/crypto/modes/ctr.c
-        include/vendor/RIOT/sys/crypto/modes/ecb.c
-        include/vendor/RIOT/sys/crypto/aes.c
-        include/vendor/RIOT/sys/crypto/chacha.c
-        include/vendor/RIOT/sys/crypto/chacha_prng.c
-        include/vendor/RIOT/sys/crypto/ciphers.c
-        include/vendor/RIOT/sys/crypto/helper.c
-        include/vendor/RIOT/sys/crypto/poly1305.c
-        include/vendor/RIOT/sys/div/div.c
-        include/vendor/RIOT/sys/ecc/golay2412.c
-        include/vendor/RIOT/sys/ecc/hamming256.c
-        include/vendor/RIOT/sys/ecc/repetition.c
-        include/vendor/RIOT/sys/eepreg/eepreg.c
-        include/vendor/RIOT/sys/embunit/AssertImpl.c
-        include/vendor/RIOT/sys/embunit/ColorOutputter.c
-        include/vendor/RIOT/sys/embunit/ColorTextColors.h
-        include/vendor/RIOT/sys/embunit/ColorTextOutputter.c
-        include/vendor/RIOT/sys/embunit/CompilerOutputter.c
-        include/vendor/RIOT/sys/embunit/RepeatedTest.c
-        include/vendor/RIOT/sys/embunit/stdImpl.c
-        include/vendor/RIOT/sys/embunit/TestCaller.c
-        include/vendor/RIOT/sys/embunit/TestCase.c
-        include/vendor/RIOT/sys/embunit/TestResult.c
-        include/vendor/RIOT/sys/embunit/TestRunner.c
-        include/vendor/RIOT/sys/embunit/TestSuite.c
-        include/vendor/RIOT/sys/embunit/TextOutputter.c
-        include/vendor/RIOT/sys/embunit/TextUIRunner.c
-        include/vendor/RIOT/sys/embunit/XMLOutputter.c
-        include/vendor/RIOT/sys/event/callback.c
-        include/vendor/RIOT/sys/event/event.c
-        include/vendor/RIOT/sys/event/timeout.c
-        include/vendor/RIOT/sys/evtimer/evtimer.c
-        include/vendor/RIOT/sys/fmt/fmt.c
-        include/vendor/RIOT/sys/fs/constfs/constfs.c
-        include/vendor/RIOT/sys/fs/devfs/auto_init_devfs.c
-        include/vendor/RIOT/sys/fs/devfs/devfs.c
-        include/vendor/RIOT/sys/hashes/cmac.c
-        include/vendor/RIOT/sys/hashes/hashes.c
-        include/vendor/RIOT/sys/hashes/md5.c
-        include/vendor/RIOT/sys/hashes/sha1.c
-        include/vendor/RIOT/sys/hashes/sha256.c
-        include/vendor/RIOT/sys/hashes/sha3.c
-        include/vendor/RIOT/sys/include/can/conn/isotp.h
-        include/vendor/RIOT/sys/include/can/conn/raw.h
-        include/vendor/RIOT/sys/include/can/can.h
-        include/vendor/RIOT/sys/include/can/common.h
-        include/vendor/RIOT/sys/include/can/device.h
-        include/vendor/RIOT/sys/include/can/dll.h
-        include/vendor/RIOT/sys/include/can/isotp.h
-        include/vendor/RIOT/sys/include/can/pkt.h
-        include/vendor/RIOT/sys/include/can/raw.h
-        include/vendor/RIOT/sys/include/can/router.h
-        include/vendor/RIOT/sys/include/checksum/crc16_ccitt.h
-        include/vendor/RIOT/sys/include/checksum/fletcher16.h
-        include/vendor/RIOT/sys/include/checksum/fletcher32.h
-        include/vendor/RIOT/sys/include/checksum/ucrc16.h
-        include/vendor/RIOT/sys/include/crypto/modes/cbc.h
-        include/vendor/RIOT/sys/include/crypto/modes/ccm.h
-        include/vendor/RIOT/sys/include/crypto/modes/ctr.h
-        include/vendor/RIOT/sys/include/crypto/modes/ecb.h
-        include/vendor/RIOT/sys/include/crypto/aes.h
-        include/vendor/RIOT/sys/include/crypto/chacha.h
-        include/vendor/RIOT/sys/include/crypto/ciphers.h
-        include/vendor/RIOT/sys/include/crypto/helper.h
-        include/vendor/RIOT/sys/include/crypto/poly1305.h
-        include/vendor/RIOT/sys/include/ecc/golay2412.h
-        include/vendor/RIOT/sys/include/ecc/hamming256.h
-        include/vendor/RIOT/sys/include/ecc/repetition.h
-        include/vendor/RIOT/sys/include/embUnit/AssertImpl.h
-        include/vendor/RIOT/sys/include/embUnit/ColorOutputter.h
-        include/vendor/RIOT/sys/include/embUnit/ColorTextOutputter.h
-        include/vendor/RIOT/sys/include/embUnit/CompilerOutputter.h
-        include/vendor/RIOT/sys/include/embUnit/embUnit.h
-        include/vendor/RIOT/sys/include/embUnit/embUnit_config.h
-        include/vendor/RIOT/sys/include/embUnit/HelperMacro.h
-        include/vendor/RIOT/sys/include/embUnit/Outputter.h
-        include/vendor/RIOT/sys/include/embUnit/RepeatedTest.h
-        include/vendor/RIOT/sys/include/embUnit/stdImpl.h
-        include/vendor/RIOT/sys/include/embUnit/Test.h
-        include/vendor/RIOT/sys/include/embUnit/TestCaller.h
-        include/vendor/RIOT/sys/include/embUnit/TestCase.h
-        include/vendor/RIOT/sys/include/embUnit/TestListener.h
-        include/vendor/RIOT/sys/include/embUnit/TestResult.h
-        include/vendor/RIOT/sys/include/embUnit/TestRunner.h
-        include/vendor/RIOT/sys/include/embUnit/TestSuite.h
-        include/vendor/RIOT/sys/include/embUnit/TextOutputter.h
-        include/vendor/RIOT/sys/include/embUnit/TextUIRunner.h
-        include/vendor/RIOT/sys/include/embUnit/XMLOutputter.h
-        include/vendor/RIOT/sys/include/event/callback.h
-        include/vendor/RIOT/sys/include/event/timeout.h
-        include/vendor/RIOT/sys/include/fs/constfs.h
-        include/vendor/RIOT/sys/include/fs/devfs.h
-        include/vendor/RIOT/sys/include/fs/fatfs.h
-        include/vendor/RIOT/sys/include/fs/littlefs_fs.h
-        include/vendor/RIOT/sys/include/fs/spiffs_fs.h
-        include/vendor/RIOT/sys/include/hashes/cmac.h
-        include/vendor/RIOT/sys/include/hashes/md5.h
-        include/vendor/RIOT/sys/include/hashes/sha1.h
-        include/vendor/RIOT/sys/include/hashes/sha256.h
-        include/vendor/RIOT/sys/include/hashes/sha3.h
-        include/vendor/RIOT/sys/include/net/bluetil/ad.h
-        include/vendor/RIOT/sys/include/net/cord/common.h
-        include/vendor/RIOT/sys/include/net/cord/config.h
-        include/vendor/RIOT/sys/include/net/cord/ep.h
-        include/vendor/RIOT/sys/include/net/cord/ep_standalone.h
-        include/vendor/RIOT/sys/include/net/cord/epsim.h
-        include/vendor/RIOT/sys/include/net/ethernet/hdr.h
-        include/vendor/RIOT/sys/include/net/fib/table.h
-        include/vendor/RIOT/sys/include/net/gnrc/gomach/gomach.h
-        include/vendor/RIOT/sys/include/net/gnrc/gomach/hdr.h
-        include/vendor/RIOT/sys/include/net/gnrc/gomach/timeout.h
-        include/vendor/RIOT/sys/include/net/gnrc/gomach/types.h
-        include/vendor/RIOT/sys/include/net/gnrc/icmpv6/echo.h
-        include/vendor/RIOT/sys/include/net/gnrc/icmpv6/error.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/ext/rh.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib/abr.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib/conf.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib/ft.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib/nc.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib/pl.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/blacklist.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/ext.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/hdr.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/nib.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6/whitelist.h
-        include/vendor/RIOT/sys/include/net/gnrc/lwmac/hdr.h
-        include/vendor/RIOT/sys/include/net/gnrc/lwmac/lwmac.h
-        include/vendor/RIOT/sys/include/net/gnrc/lwmac/timeout.h
-        include/vendor/RIOT/sys/include/net/gnrc/lwmac/types.h
-        include/vendor/RIOT/sys/include/net/gnrc/mac/internal.h
-        include/vendor/RIOT/sys/include/net/gnrc/mac/mac.h
-        include/vendor/RIOT/sys/include/net/gnrc/mac/timeout.h
-        include/vendor/RIOT/sys/include/net/gnrc/mac/types.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/6lo.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/conf.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/ethernet.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/flags.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/hdr.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/ieee802154.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/internal.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/ipv6.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/mac.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif/raw.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/dodag.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/of_manager.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/p2p.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/p2p_dodag.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/p2p_structs.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/srh.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl/structs.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/nd/border_router.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/ctx.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/frag.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/internal.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/iphc.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan/nd.h
-        include/vendor/RIOT/sys/include/net/gnrc/tcp/config.h
-        include/vendor/RIOT/sys/include/net/gnrc/tcp/tcb.h
-        include/vendor/RIOT/sys/include/net/gnrc/icmpv6.h
-        include/vendor/RIOT/sys/include/net/gnrc/ipv6.h
-        include/vendor/RIOT/sys/include/net/gnrc/ndp.h
-        include/vendor/RIOT/sys/include/net/gnrc/netapi.h
-        include/vendor/RIOT/sys/include/net/gnrc/neterr.h
-        include/vendor/RIOT/sys/include/net/gnrc/netif.h
-        include/vendor/RIOT/sys/include/net/gnrc/netreg.h
-        include/vendor/RIOT/sys/include/net/gnrc/nettest.h
-        include/vendor/RIOT/sys/include/net/gnrc/nettype.h
-        include/vendor/RIOT/sys/include/net/gnrc/pkt.h
-        include/vendor/RIOT/sys/include/net/gnrc/pktbuf.h
-        include/vendor/RIOT/sys/include/net/gnrc/pktdump.h
-        include/vendor/RIOT/sys/include/net/gnrc/pktqueue.h
-        include/vendor/RIOT/sys/include/net/gnrc/priority_pktqueue.h
-        include/vendor/RIOT/sys/include/net/gnrc/rpl.h
-        include/vendor/RIOT/sys/include/net/gnrc/sixlowpan.h
-        include/vendor/RIOT/sys/include/net/gnrc/tcp.h
-        include/vendor/RIOT/sys/include/net/gnrc/tftp.h
-        include/vendor/RIOT/sys/include/net/gnrc/udp.h
-        include/vendor/RIOT/sys/include/net/iana/portrange.h
-        include/vendor/RIOT/sys/include/net/ipv4/addr.h
-        include/vendor/RIOT/sys/include/net/ipv4/hdr.h
-        include/vendor/RIOT/sys/include/net/ipv6/ext/rh.h
-        include/vendor/RIOT/sys/include/net/ipv6/addr.h
-        include/vendor/RIOT/sys/include/net/ipv6/ext.h
-        include/vendor/RIOT/sys/include/net/ipv6/hdr.h
-        include/vendor/RIOT/sys/include/net/ppp/hdr.h
-        include/vendor/RIOT/sys/include/net/rpl/rpl_netstats.h
-        include/vendor/RIOT/sys/include/net/sixlowpan/nd.h
-        include/vendor/RIOT/sys/include/net/skald/eddystone.h
-        include/vendor/RIOT/sys/include/net/skald/ibeacon.h
-        include/vendor/RIOT/sys/include/net/sock/dns.h
-        include/vendor/RIOT/sys/include/net/sock/ip.h
-        include/vendor/RIOT/sys/include/net/sock/tcp.h
-        include/vendor/RIOT/sys/include/net/sock/udp.h
-        include/vendor/RIOT/sys/include/net/sock/util.h
-        include/vendor/RIOT/sys/include/net/af.h
-        include/vendor/RIOT/sys/include/net/asymcute.h
-        include/vendor/RIOT/sys/include/net/ble.h
-        include/vendor/RIOT/sys/include/net/coap.h
-        include/vendor/RIOT/sys/include/net/csma_sender.h
-        include/vendor/RIOT/sys/include/net/dns.h
-        include/vendor/RIOT/sys/include/net/eddystone.h
-        include/vendor/RIOT/sys/include/net/emcute.h
-        include/vendor/RIOT/sys/include/net/ethernet.h
-        include/vendor/RIOT/sys/include/net/ethertype.h
-        include/vendor/RIOT/sys/include/net/eui48.h
-        include/vendor/RIOT/sys/include/net/eui64.h
-        include/vendor/RIOT/sys/include/net/fib.h
-        include/vendor/RIOT/sys/include/net/gcoap.h
-        include/vendor/RIOT/sys/include/net/gnrc.h
-        include/vendor/RIOT/sys/include/net/icmp.h
-        include/vendor/RIOT/sys/include/net/icmpv6.h
-        include/vendor/RIOT/sys/include/net/ieee802154.h
-        include/vendor/RIOT/sys/include/net/inet_csum.h
-        include/vendor/RIOT/sys/include/net/ipv4.h
-        include/vendor/RIOT/sys/include/net/ipv6.h
-        include/vendor/RIOT/sys/include/net/l2filter.h
-        include/vendor/RIOT/sys/include/net/lora.h
-        include/vendor/RIOT/sys/include/net/loramac.h
-        include/vendor/RIOT/sys/include/net/mqttsn.h
-        include/vendor/RIOT/sys/include/net/nanocoap.h
-        include/vendor/RIOT/sys/include/net/nanocoap_sock.h
-        include/vendor/RIOT/sys/include/net/ndp.h
-        include/vendor/RIOT/sys/include/net/netdev_test.h
-        include/vendor/RIOT/sys/include/net/netif.h
-        include/vendor/RIOT/sys/include/net/netopt.h
-        include/vendor/RIOT/sys/include/net/netstats.h
-        include/vendor/RIOT/sys/include/net/ntp_packet.h
-        include/vendor/RIOT/sys/include/net/packet.h
-        include/vendor/RIOT/sys/include/net/ppptype.h
-        include/vendor/RIOT/sys/include/net/protnum.h
-        include/vendor/RIOT/sys/include/net/sixlowpan.h
-        include/vendor/RIOT/sys/include/net/skald.h
-        include/vendor/RIOT/sys/include/net/sntp.h
-        include/vendor/RIOT/sys/include/net/sock.h
-        include/vendor/RIOT/sys/include/net/tcp.h
-        include/vendor/RIOT/sys/include/net/udp.h
-        include/vendor/RIOT/sys/include/net/uhcp.h
-        include/vendor/RIOT/sys/include/net/zep.h
-        include/vendor/RIOT/sys/include/riotboot/hdr.h
-        include/vendor/RIOT/sys/include/riotboot/slot.h
-        include/vendor/RIOT/sys/include/xtimer/implementation.h
-        include/vendor/RIOT/sys/include/xtimer/tick_conversion.h
-        include/vendor/RIOT/sys/include/analog_util.h
-        include/vendor/RIOT/sys/include/auto_init.h
-        include/vendor/RIOT/sys/include/base64.h
-        include/vendor/RIOT/sys/include/bcd.h
-        include/vendor/RIOT/sys/include/benchmark.h
-        include/vendor/RIOT/sys/include/bitfield.h
-        include/vendor/RIOT/sys/include/bloom.h
-        include/vendor/RIOT/sys/include/cb_mux.h
-        include/vendor/RIOT/sys/include/color.h
-        include/vendor/RIOT/sys/include/div.h
-        include/vendor/RIOT/sys/include/eepreg.h
-        include/vendor/RIOT/sys/include/embUnit.h
-        include/vendor/RIOT/sys/include/event.h
-        include/vendor/RIOT/sys/include/evtimer.h
-        include/vendor/RIOT/sys/include/evtimer_msg.h
-        include/vendor/RIOT/sys/include/fmt.h
-        include/vendor/RIOT/sys/include/hashes.h
-        include/vendor/RIOT/sys/include/iolist.h
-        include/vendor/RIOT/sys/include/isrpipe.h
-        include/vendor/RIOT/sys/include/luid.h
-        include/vendor/RIOT/sys/include/matstat.h
-        include/vendor/RIOT/sys/include/memarray.h
-        include/vendor/RIOT/sys/include/mineplex.h
-        include/vendor/RIOT/sys/include/od.h
-        include/vendor/RIOT/sys/include/phydat.h
-        include/vendor/RIOT/sys/include/pipe.h
-        include/vendor/RIOT/sys/include/pm_layered.h
-        include/vendor/RIOT/sys/include/ps.h
-        include/vendor/RIOT/sys/include/puf_sram.h
-        include/vendor/RIOT/sys/include/random.h
-        include/vendor/RIOT/sys/include/saul_reg.h
-        include/vendor/RIOT/sys/include/sema.h
-        include/vendor/RIOT/sys/include/seq.h
-        include/vendor/RIOT/sys/include/shell.h
-        include/vendor/RIOT/sys/include/shell_commands.h
-        include/vendor/RIOT/sys/include/stdio_base.h
-        include/vendor/RIOT/sys/include/stdio_rtt.h
-        include/vendor/RIOT/sys/include/stdio_uart.h
-        include/vendor/RIOT/sys/include/timex.h
-        include/vendor/RIOT/sys/include/tm.h
-        include/vendor/RIOT/sys/include/trickle.h
-        include/vendor/RIOT/sys/include/tsrb.h
-        include/vendor/RIOT/sys/include/ubjson.h
-        include/vendor/RIOT/sys/include/universal_address.h
-        include/vendor/RIOT/sys/include/utlist.h
-        include/vendor/RIOT/sys/include/uuid.h
-        include/vendor/RIOT/sys/include/vfs.h
-        include/vendor/RIOT/sys/include/xtimer.h
-        include/vendor/RIOT/sys/iolist/iolist.c
-        include/vendor/RIOT/sys/isrpipe/isrpipe.c
-        include/vendor/RIOT/sys/libc/include/sys/uio.h
-        include/vendor/RIOT/sys/log/log_printfnoformat/log_module.h
-        include/vendor/RIOT/sys/luid/luid.c
-        include/vendor/RIOT/sys/matstat/matstat.c
-        include/vendor/RIOT/sys/memarray/memarray.c
-        include/vendor/RIOT/sys/mineplex/mineplex.c
-        include/vendor/RIOT/sys/net/application_layer/asymcute/asymcute.c
-        include/vendor/RIOT/sys/net/application_layer/cord/common/cord_common.c
-        include/vendor/RIOT/sys/net/application_layer/cord/ep/cord_ep.c
-        include/vendor/RIOT/sys/net/application_layer/cord/ep/cord_ep_standalone.c
-        include/vendor/RIOT/sys/net/application_layer/cord/epsim/cord_epsim.c
-        include/vendor/RIOT/sys/net/application_layer/cord/epsim/cord_epsim_standalone.c
-        include/vendor/RIOT/sys/net/application_layer/dns/dns.c
-        include/vendor/RIOT/sys/net/application_layer/emcute/emcute.c
-        include/vendor/RIOT/sys/net/application_layer/emcute/emcute_internal.h
-        include/vendor/RIOT/sys/net/application_layer/emcute/emcute_str.c
-        include/vendor/RIOT/sys/net/application_layer/gcoap/gcoap.c
-        include/vendor/RIOT/sys/net/application_layer/nanocoap/nanocoap.c
-        include/vendor/RIOT/sys/net/application_layer/nanocoap/sock.c
-        include/vendor/RIOT/sys/net/application_layer/sntp/sntp.c
-        include/vendor/RIOT/sys/net/application_layer/uhcp/uhcp.c
-        include/vendor/RIOT/sys/net/application_layer/uhcp/uhcpc.c
-        include/vendor/RIOT/sys/net/ble/bluetil/bluetil_ad/bluetil_ad.c
-        include/vendor/RIOT/sys/net/crosslayer/inet_csum/inet_csum.c
-        include/vendor/RIOT/sys/net/crosslayer/netopt/netopt.c
-        include/vendor/RIOT/sys/net/gnrc/application_layer/tftp/gnrc_tftp.c
-        include/vendor/RIOT/sys/net/gnrc/application_layer/uhcpc/gnrc_uhcpc.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gnrc_mac/internal.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gnrc_mac/timeout.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gomach/include/gomach_internal.h
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gomach/gomach.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gomach/gomach_internal.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/gomach/timeout.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/include/lwmac_internal.h
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/include/rx_state_machine.h
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/include/tx_state_machine.h
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/lwmac.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/lwmac_internal.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/rx_state_machine.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/timeout.c
-        include/vendor/RIOT/sys/net/gnrc/link_layer/lwmac/tx_state_machine.c
-        include/vendor/RIOT/sys/net/gnrc/netapi/gnrc_netapi.c
-        include/vendor/RIOT/sys/net/gnrc/netif/ethernet/gnrc_netif_ethernet.c
-        include/vendor/RIOT/sys/net/gnrc/netif/hdr/gnrc_netif_hdr.c
-        include/vendor/RIOT/sys/net/gnrc/netif/hdr/gnrc_netif_hdr_print.c
-        include/vendor/RIOT/sys/net/gnrc/netif/ieee802154/gnrc_netif_ieee802154.c
-        include/vendor/RIOT/sys/net/gnrc/netif/include/netif_types.h
-        include/vendor/RIOT/sys/net/gnrc/netif/_netif.c
-        include/vendor/RIOT/sys/net/gnrc/netif/gnrc_netif.c
-        include/vendor/RIOT/sys/net/gnrc/netif/gnrc_netif_device_type.c
-        include/vendor/RIOT/sys/net/gnrc/netif/gnrc_netif_raw.c
-        include/vendor/RIOT/sys/net/gnrc/netreg/gnrc_netreg.c
-        include/vendor/RIOT/sys/net/gnrc/nettest/gnrc_nettest.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/icmpv6/echo/gnrc_icmpv6_echo.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/icmpv6/error/gnrc_icmpv6_error.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/icmpv6/gnrc_icmpv6.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/blacklist/gnrc_ipv6_blacklist.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/blacklist/gnrc_ipv6_blacklist_print.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/ext/rh/gnrc_ipv6_ext_rh.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/ext/gnrc_ipv6_ext.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/hdr/gnrc_ipv6_hdr.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6ln.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6ln.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6lr.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6lr.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-arsm.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-arsm.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-internal.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-internal.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-router.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-router.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-slaac.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-slaac.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_abr.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_ft.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_nc.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_pl.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/whitelist/gnrc_ipv6_whitelist.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/whitelist/gnrc_ipv6_whitelist_print.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ipv6/gnrc_ipv6.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/ndp/gnrc_ndp.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/ctx/gnrc_sixlowpan_ctx.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/gnrc_sixlowpan_frag.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/rbuf.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/rbuf.h
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/iphc/gnrc_sixlowpan_iphc.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/nd/router/gnrc_sixlowpan_nd_router.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/nd/gnrc_sixlowpan_nd.c
-        include/vendor/RIOT/sys/net/gnrc/network_layer/sixlowpan/gnrc_sixlowpan.c
-        include/vendor/RIOT/sys/net/gnrc/pkt/gnrc_pkt.c
-        include/vendor/RIOT/sys/net/gnrc/pktbuf/gnrc_pktbuf.c
-        include/vendor/RIOT/sys/net/gnrc/pktbuf_malloc/gnrc_pktbuf_malloc.c
-        include/vendor/RIOT/sys/net/gnrc/pktbuf_static/gnrc_pktbuf_static.c
-        include/vendor/RIOT/sys/net/gnrc/pktdump/gnrc_pktdump.c
-        include/vendor/RIOT/sys/net/gnrc/priority_pktqueue/priority_pktqueue.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/globals.h
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/netstats.h
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/validation.h
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/p2p/gnrc_rpl_p2p.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/p2p/gnrc_rpl_p2p_dodag.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/srh/gnrc_rpl_srh.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_auto_init.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_control_messages.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_dodag.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_of_manager.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_validation.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/of0.c
-        include/vendor/RIOT/sys/net/gnrc/routing/rpl/of0.h
-        include/vendor/RIOT/sys/net/gnrc/sock/include/gnrc_sock_internal.h
-        include/vendor/RIOT/sys/net/gnrc/sock/include/sock_types.h
-        include/vendor/RIOT/sys/net/gnrc/sock/ip/gnrc_sock_ip.c
-        include/vendor/RIOT/sys/net/gnrc/sock/udp/gnrc_sock_udp.c
-        include/vendor/RIOT/sys/net/gnrc/sock/gnrc_sock.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/common.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/eventloop.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/fsm.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/option.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/pkt.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/internal/rcvbuf.h
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_eventloop.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_fsm.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_option.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_pkt.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_rcvbuf.c
-        include/vendor/RIOT/sys/net/gnrc/transport_layer/udp/gnrc_udp.c
-        include/vendor/RIOT/sys/net/link_layer/csma_sender/csma_sender.c
-        include/vendor/RIOT/sys/net/link_layer/ieee802154/ieee802154.c
-        include/vendor/RIOT/sys/net/link_layer/l2filter/l2filter.c
-        include/vendor/RIOT/sys/net/netdev_test/netdev_test.c
-        include/vendor/RIOT/sys/net/network_layer/fib/fib.c
-        include/vendor/RIOT/sys/net/network_layer/icmpv6/icmpv6_hdr_print.c
-        include/vendor/RIOT/sys/net/network_layer/ipv4/addr/ipv4_addr_from_str.c
-        include/vendor/RIOT/sys/net/network_layer/ipv4/addr/ipv4_addr_to_str.c
-        include/vendor/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr.c
-        include/vendor/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr_from_str.c
-        include/vendor/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr_to_str.c
-        include/vendor/RIOT/sys/net/network_layer/ipv6/hdr/ipv6_hdr_print.c
-        include/vendor/RIOT/sys/net/network_layer/sixlowpan/sixlowpan_print.c
-        include/vendor/RIOT/sys/net/routing/nhdp/iib_table.c
-        include/vendor/RIOT/sys/net/routing/nhdp/iib_table.h
-        include/vendor/RIOT/sys/net/routing/nhdp/lib_table.c
-        include/vendor/RIOT/sys/net/routing/nhdp/lib_table.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp.c
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_address.c
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_address.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_metric.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_reader.c
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_reader.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_writer.c
-        include/vendor/RIOT/sys/net/routing/nhdp/nhdp_writer.h
-        include/vendor/RIOT/sys/net/routing/nhdp/nib_table.c
-        include/vendor/RIOT/sys/net/routing/nhdp/nib_table.h
-        include/vendor/RIOT/sys/net/skald/skald.c
-        include/vendor/RIOT/sys/net/skald/skald_eddystone.c
-        include/vendor/RIOT/sys/net/skald/skald_ibeacon.c
-        include/vendor/RIOT/sys/net/sock/sock_util.c
-        include/vendor/RIOT/sys/net/transport_layer/tcp/tcp_hdr_print.c
-        include/vendor/RIOT/sys/net/transport_layer/udp/udp_hdr_print.c
-        include/vendor/RIOT/sys/newlib_syscalls_default/syscalls.c
-        include/vendor/RIOT/sys/od/od.c
-        include/vendor/RIOT/sys/oneway-malloc/include/malloc.h
-        include/vendor/RIOT/sys/oneway-malloc/oneway-malloc.c
-        include/vendor/RIOT/sys/phydat/phydat.c
-        include/vendor/RIOT/sys/phydat/phydat_str.c
-        include/vendor/RIOT/sys/pipe/pipe.c
-        include/vendor/RIOT/sys/pipe/pipe_dynamic.c
-        include/vendor/RIOT/sys/pm_layered/pm.c
-        include/vendor/RIOT/sys/posix/include/arpa/inet.h
-        include/vendor/RIOT/sys/posix/include/netinet/in.h
-        include/vendor/RIOT/sys/posix/include/sys/bytes.h
-        include/vendor/RIOT/sys/posix/include/sys/socket.h
-        include/vendor/RIOT/sys/posix/include/sys/statvfs.h
-        include/vendor/RIOT/sys/posix/include/fcntl.h
-        include/vendor/RIOT/sys/posix/include/semaphore.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_barrier.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_cancellation.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_cleanup.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_cond.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_mutex.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_mutex_attr.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_once.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_rwlock.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_rwlock_attr.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_scheduling.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_spin.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_threading.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_threading_attr.h
-        include/vendor/RIOT/sys/posix/pthread/include/pthread_tls.h
-        include/vendor/RIOT/sys/posix/pthread/pthread.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_attr.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_barrier.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_barrierattr.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_cond.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_mutex.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_mutex_attr.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_once.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_rwlock.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_rwlock_attr.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_spin.c
-        include/vendor/RIOT/sys/posix/pthread/pthread_tls.c
-        include/vendor/RIOT/sys/posix/semaphore/posix_semaphore.c
-        include/vendor/RIOT/sys/posix/sockets/posix_sockets.c
-        include/vendor/RIOT/sys/posix/time/posix_time.c
-        include/vendor/RIOT/sys/posix/inet.c
-        include/vendor/RIOT/sys/ps/ps.c
-        include/vendor/RIOT/sys/puf_sram/puf_sram.c
-        include/vendor/RIOT/sys/quad_math/adddi3.c
-        include/vendor/RIOT/sys/quad_math/anddi3.c
-        include/vendor/RIOT/sys/quad_math/ashldi3.c
-        include/vendor/RIOT/sys/quad_math/ashrdi3.c
-        include/vendor/RIOT/sys/quad_math/cmpdi2.c
-        include/vendor/RIOT/sys/quad_math/divdi3.c
-        include/vendor/RIOT/sys/quad_math/fixdfdi.c
-        include/vendor/RIOT/sys/quad_math/fixsfdi.c
-        include/vendor/RIOT/sys/quad_math/fixunsdfdi.c
-        include/vendor/RIOT/sys/quad_math/fixunssfdi.c
-        include/vendor/RIOT/sys/quad_math/floatdidf.c
-        include/vendor/RIOT/sys/quad_math/floatdisf.c
-        include/vendor/RIOT/sys/quad_math/floatunsdidf.c
-        include/vendor/RIOT/sys/quad_math/iordi3.c
-        include/vendor/RIOT/sys/quad_math/lshldi3.c
-        include/vendor/RIOT/sys/quad_math/lshrdi3.c
-        include/vendor/RIOT/sys/quad_math/moddi3.c
-        include/vendor/RIOT/sys/quad_math/muldi3.c
-        include/vendor/RIOT/sys/quad_math/negdi2.c
-        include/vendor/RIOT/sys/quad_math/notdi2.c
-        include/vendor/RIOT/sys/quad_math/qdivrem.c
-        include/vendor/RIOT/sys/quad_math/quad.h
-        include/vendor/RIOT/sys/quad_math/subdi3.c
-        include/vendor/RIOT/sys/quad_math/ucmpdi2.c
-        include/vendor/RIOT/sys/quad_math/udivdi3.c
-        include/vendor/RIOT/sys/quad_math/umoddi3.c
-        include/vendor/RIOT/sys/quad_math/xordi3.c
-        include/vendor/RIOT/sys/random/fortuna/fortuna.c
-        include/vendor/RIOT/sys/random/fortuna/fortuna.h
-        include/vendor/RIOT/sys/random/tinymt32/tinymt32.c
-        include/vendor/RIOT/sys/random/tinymt32/tinymt32.h
-        include/vendor/RIOT/sys/random/fortuna.c
-        include/vendor/RIOT/sys/random/mersenne.c
-        include/vendor/RIOT/sys/random/minstd.c
-        include/vendor/RIOT/sys/random/musl_lcg.c
-        include/vendor/RIOT/sys/random/random.c
-        include/vendor/RIOT/sys/random/sha1prng.c
-        include/vendor/RIOT/sys/random/tinymt32.c
-        include/vendor/RIOT/sys/random/xorshift.c
-        include/vendor/RIOT/sys/riotboot/hdr.c
-        include/vendor/RIOT/sys/riotboot/slot.c
-        include/vendor/RIOT/sys/saul_reg/saul_reg.c
-        include/vendor/RIOT/sys/sema/sema.c
-        include/vendor/RIOT/sys/seq/seq.c
-        include/vendor/RIOT/sys/shell/commands/sc_at30tse75x.c
-        include/vendor/RIOT/sys/shell/commands/sc_blacklist.c
-        include/vendor/RIOT/sys/shell/commands/sc_can.c
-        include/vendor/RIOT/sys/shell/commands/sc_ccnl.c
-        include/vendor/RIOT/sys/shell/commands/sc_cord_ep.c
-        include/vendor/RIOT/sys/shell/commands/sc_disk.c
-        include/vendor/RIOT/sys/shell/commands/sc_fib.c
-        include/vendor/RIOT/sys/shell/commands/sc_gnrc_6ctx.c
-        include/vendor/RIOT/sys/shell/commands/sc_gnrc_ipv6_nib.c
-        include/vendor/RIOT/sys/shell/commands/sc_gnrc_netif.c
-        include/vendor/RIOT/sys/shell/commands/sc_gnrc_pktbuf.c
-        include/vendor/RIOT/sys/shell/commands/sc_gnrc_rpl.c
-        include/vendor/RIOT/sys/shell/commands/sc_heap.c
-        include/vendor/RIOT/sys/shell/commands/sc_icmpv6_echo.c
-        include/vendor/RIOT/sys/shell/commands/sc_ps.c
-        include/vendor/RIOT/sys/shell/commands/sc_random.c
-        include/vendor/RIOT/sys/shell/commands/sc_rtc.c
-        include/vendor/RIOT/sys/shell/commands/sc_saul_reg.c
-        include/vendor/RIOT/sys/shell/commands/sc_sht1x.c
-        include/vendor/RIOT/sys/shell/commands/sc_sntp.c
-        include/vendor/RIOT/sys/shell/commands/sc_sys.c
-        include/vendor/RIOT/sys/shell/commands/sc_vfs.c
-        include/vendor/RIOT/sys/shell/commands/sc_whitelist.c
-        include/vendor/RIOT/sys/shell/commands/shell_commands.c
-        include/vendor/RIOT/sys/shell/shell.c
-        include/vendor/RIOT/sys/ssp/ssp.c
-        include/vendor/RIOT/sys/stdio_rtt/stdio_rtt.c
-        include/vendor/RIOT/sys/stdio_uart/stdio_uart.c
-        include/vendor/RIOT/sys/timex/timex.c
-        include/vendor/RIOT/sys/timex/timex_to_str.c
-        include/vendor/RIOT/sys/timex/tm.c
-        include/vendor/RIOT/sys/trickle/trickle.c
-        include/vendor/RIOT/sys/tsrb/tsrb.c
-        include/vendor/RIOT/sys/ubjson/ubjson-internal.h
-        include/vendor/RIOT/sys/ubjson/ubjson-read.c
-        include/vendor/RIOT/sys/ubjson/ubjson-write.c
-        include/vendor/RIOT/sys/universal_address/universal_address.c
-        include/vendor/RIOT/sys/uuid/uuid.c
-        include/vendor/RIOT/sys/vfs/vfs.c
-        include/vendor/RIOT/sys/vfs/vfs_stdio.c
-        include/vendor/RIOT/sys/xtimer/xtimer.c
-        include/vendor/RIOT/sys/xtimer/xtimer_core.c
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_armcc.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_armclang.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_iccarm.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_armv8mbl.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_armv8mml.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm0.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm0plus.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm1.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm23.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm3.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm33.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_cm7.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_sc000.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/core_sc300.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/mpu_armv8.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vendor/tz_context.h
-        include/vendor/RIOT/cpu/cortexm_common/include/bit.h
-        include/vendor/RIOT/cpu/cortexm_common/include/cpu.h
-        include/vendor/RIOT/cpu/cortexm_common/include/cpu_conf_common.h
-        include/vendor/RIOT/cpu/cortexm_common/include/mpu.h
-        include/vendor/RIOT/cpu/cortexm_common/include/vectors_cortexm.h
-        include/vendor/RIOT/cpu/cortexm_common/ldscripts/cortexm.ld
-        include/vendor/RIOT/cpu/cortexm_common/ldscripts/cortexm_base.ld
-        include/vendor/RIOT/cpu/cortexm_common/ldscripts/multislot.ld
-        include/vendor/RIOT/cpu/cortexm_common/periph/Makefile
-        include/vendor/RIOT/cpu/cortexm_common/periph/pm.c
-        include/vendor/RIOT/cpu/cortexm_common/cortexm_init.c
-        include/vendor/RIOT/cpu/cortexm_common/irq_arch.c
-        include/vendor/RIOT/cpu/cortexm_common/Makefile
-        include/vendor/RIOT/cpu/cortexm_common/Makefile.features
-        include/vendor/RIOT/cpu/cortexm_common/Makefile.include
-        include/vendor/RIOT/cpu/cortexm_common/mpu.c
-        include/vendor/RIOT/cpu/cortexm_common/panic.c
-        include/vendor/RIOT/cpu/cortexm_common/thread_arch.c
-        include/vendor/RIOT/cpu/cortexm_common/vectors_cortexm.c
+set(CMAKE_CXX_STANDARD 11)
+
+include_directories(include)
+include_directories(lib/RIOT/boards/bluepill/include)
+include_directories(lib/RIOT/boards/common)
+include_directories(lib/RIOT/boards/common/stm32f103c8)
+include_directories(lib/RIOT/boards/common/stm32f103c8/include)
+include_directories(lib/RIOT/core/include)
+include_directories(lib/RIOT/cpu/stm32_common/dist/clk_conf)
+include_directories(lib/RIOT/cpu/stm32_common/include)
+include_directories(lib/RIOT/cpu/stm32l1/include)
+include_directories(lib/RIOT/cpu/stm32l1/include/vendor)
+include_directories(lib/RIOT/drivers/adcxx1c/include)
+include_directories(lib/RIOT/drivers/ads101x/include)
+include_directories(lib/RIOT/drivers/adxl345/include)
+include_directories(lib/RIOT/drivers/apa102/include)
+include_directories(lib/RIOT/drivers/at86rf2xx/include)
+include_directories(lib/RIOT/drivers/ata8520e/include)
+include_directories(lib/RIOT/drivers/bh1750fvi/include)
+include_directories(lib/RIOT/drivers/bmp180/include)
+include_directories(lib/RIOT/drivers/bmx055)
+include_directories(lib/RIOT/drivers/bmx055/include)
+include_directories(lib/RIOT/drivers/bmx280/include)
+include_directories(lib/RIOT/drivers/cc110x/include)
+include_directories(lib/RIOT/drivers/cc2420/include)
+include_directories(lib/RIOT/drivers/ccs811/include)
+include_directories(lib/RIOT/drivers/dht/include)
+include_directories(lib/RIOT/drivers/ds1307/include)
+include_directories(lib/RIOT/drivers/ds18)
+include_directories(lib/RIOT/drivers/ds18/include)
+include_directories(lib/RIOT/drivers/dsp0401/include)
+include_directories(lib/RIOT/drivers/dynamixel/include)
+include_directories(lib/RIOT/drivers/enc28j60/include)
+include_directories(lib/RIOT/drivers/encx24j600/include)
+include_directories(lib/RIOT/drivers/feetech/include)
+include_directories(lib/RIOT/drivers/fxos8700/include)
+include_directories(lib/RIOT/drivers/grove_ledbar/include)
+include_directories(lib/RIOT/drivers/hd44780/include)
+include_directories(lib/RIOT/drivers/hdc1000/include)
+include_directories(lib/RIOT/drivers/hts221/include)
+include_directories(lib/RIOT/drivers/ina220/include)
+include_directories(lib/RIOT/drivers/include)
+include_directories(lib/RIOT/drivers/include/can)
+include_directories(lib/RIOT/drivers/include/net)
+include_directories(lib/RIOT/drivers/include/net/netdev)
+include_directories(lib/RIOT/drivers/include/periph)
+include_directories(lib/RIOT/drivers/include/saul)
+include_directories(lib/RIOT/drivers/io1_xplained/include)
+include_directories(lib/RIOT/drivers/isl29020/include)
+include_directories(lib/RIOT/drivers/isl29125/include)
+include_directories(lib/RIOT/drivers/jc42/include)
+include_directories(lib/RIOT/drivers/kw2xrf/include)
+include_directories(lib/RIOT/drivers/l3g4200d/include)
+include_directories(lib/RIOT/drivers/lc709203f/include)
+include_directories(lib/RIOT/drivers/lis2dh12)
+include_directories(lib/RIOT/drivers/lis2dh12/include)
+include_directories(lib/RIOT/drivers/lis3dh/include)
+include_directories(lib/RIOT/drivers/lis3mdl/include)
+include_directories(lib/RIOT/drivers/lpd8808/include)
+include_directories(lib/RIOT/drivers/lps331ap/include)
+include_directories(lib/RIOT/drivers/lsm303dlhc/include)
+include_directories(lib/RIOT/drivers/lsm6dsl/include)
+include_directories(lib/RIOT/drivers/mag3110/include)
+include_directories(lib/RIOT/drivers/mma7660/include)
+include_directories(lib/RIOT/drivers/mma8x5x/include)
+include_directories(lib/RIOT/drivers/mpl3115a2/include)
+include_directories(lib/RIOT/drivers/mpu9150/include)
+include_directories(lib/RIOT/drivers/mrf24j40/include)
+include_directories(lib/RIOT/drivers/my9221/include)
+include_directories(lib/RIOT/drivers/nrf24l01p/include)
+include_directories(lib/RIOT/drivers/pcd8544/include)
+include_directories(lib/RIOT/drivers/pir/include)
+include_directories(lib/RIOT/drivers/pulse_counter/include)
+include_directories(lib/RIOT/drivers/rn2xx3/include)
+include_directories(lib/RIOT/drivers/sdcard_spi/include)
+include_directories(lib/RIOT/drivers/sht1x/include)
+include_directories(lib/RIOT/drivers/sht3x/include)
+include_directories(lib/RIOT/drivers/si114x/include)
+include_directories(lib/RIOT/drivers/si70xx/include)
+include_directories(lib/RIOT/drivers/soft_spi/include)
+include_directories(lib/RIOT/drivers/srf04/include)
+include_directories(lib/RIOT/drivers/sx127x/include)
+include_directories(lib/RIOT/drivers/tcs37727/include)
+include_directories(lib/RIOT/drivers/tmp006/include)
+include_directories(lib/RIOT/drivers/tps6274x/include)
+include_directories(lib/RIOT/drivers/tsl2561/include)
+include_directories(lib/RIOT/drivers/tsl4531x/include)
+include_directories(lib/RIOT/drivers/uart_half_duplex/include)
+include_directories(lib/RIOT/drivers/vcnl40x0/include)
+include_directories(lib/RIOT/drivers/veml6070/include)
+include_directories(lib/RIOT/drivers/w5100/include)
+include_directories(lib/RIOT/drivers/xbee/include)
+include_directories(lib/RIOT/pkg/emb6/include)
+include_directories(lib/RIOT/pkg/emb6/include/emb6)
+include_directories(lib/RIOT/pkg/fatfs/fatfs_diskio/mtd/include)
+include_directories(lib/RIOT/pkg/libb2)
+include_directories(lib/RIOT/pkg/libb2/include)
+include_directories(lib/RIOT/pkg/lua/contrib)
+include_directories(lib/RIOT/pkg/lua/include)
+include_directories(lib/RIOT/pkg/lwip/include)
+include_directories(lib/RIOT/pkg/lwip/include/arch)
+include_directories(lib/RIOT/pkg/lwip/include/lwip)
+include_directories(lib/RIOT/pkg/lwip/include/lwip/netif)
+include_directories(lib/RIOT/pkg/nimble/contrib/include)
+include_directories(lib/RIOT/pkg/nordic_softdevice_ble/src)
+include_directories(lib/RIOT/pkg/openthread/include)
+include_directories(lib/RIOT/pkg/semtech-loramac/include)
+include_directories(lib/RIOT/pkg/semtech-loramac/include/semtech-loramac)
+include_directories(lib/RIOT/pkg/spiffs/include)
+include_directories(lib/RIOT/pkg/tlsf/contrib/include)
+include_directories(lib/RIOT/sys/arduino/include)
+include_directories(lib/RIOT/sys/cpp11-compat/include)
+include_directories(lib/RIOT/sys/cpp11-compat/include/riot)
+include_directories(lib/RIOT/sys/cpp11-compat/include/riot/detail)
+include_directories(lib/RIOT/sys/embunit)
+include_directories(lib/RIOT/sys/include)
+include_directories(lib/RIOT/sys/include/can)
+include_directories(lib/RIOT/sys/include/can/conn)
+include_directories(lib/RIOT/sys/include/checksum)
+include_directories(lib/RIOT/sys/include/crypto)
+include_directories(lib/RIOT/sys/include/crypto/modes)
+include_directories(lib/RIOT/sys/include/ecc)
+include_directories(lib/RIOT/sys/include/embUnit)
+include_directories(lib/RIOT/sys/include/event)
+include_directories(lib/RIOT/sys/include/fs)
+include_directories(lib/RIOT/sys/include/hashes)
+include_directories(lib/RIOT/sys/include/net)
+include_directories(lib/RIOT/sys/include/net/bluetil)
+include_directories(lib/RIOT/sys/include/net/cord)
+include_directories(lib/RIOT/sys/include/net/ethernet)
+include_directories(lib/RIOT/sys/include/net/fib)
+include_directories(lib/RIOT/sys/include/net/gnrc)
+include_directories(lib/RIOT/sys/include/net/gnrc/gomach)
+include_directories(lib/RIOT/sys/include/net/gnrc/icmpv6)
+include_directories(lib/RIOT/sys/include/net/gnrc/ipv6)
+include_directories(lib/RIOT/sys/include/net/gnrc/ipv6/ext)
+include_directories(lib/RIOT/sys/include/net/gnrc/ipv6/nib)
+include_directories(lib/RIOT/sys/include/net/gnrc/lwmac)
+include_directories(lib/RIOT/sys/include/net/gnrc/mac)
+include_directories(lib/RIOT/sys/include/net/gnrc/netif)
+include_directories(lib/RIOT/sys/include/net/gnrc/rpl)
+include_directories(lib/RIOT/sys/include/net/gnrc/sixlowpan)
+include_directories(lib/RIOT/sys/include/net/gnrc/sixlowpan/nd)
+include_directories(lib/RIOT/sys/include/net/gnrc/tcp)
+include_directories(lib/RIOT/sys/include/net/iana)
+include_directories(lib/RIOT/sys/include/net/ipv4)
+include_directories(lib/RIOT/sys/include/net/ipv6)
+include_directories(lib/RIOT/sys/include/net/ipv6/ext)
+include_directories(lib/RIOT/sys/include/net/ppp)
+include_directories(lib/RIOT/sys/include/net/rpl)
+include_directories(lib/RIOT/sys/include/net/sixlowpan)
+include_directories(lib/RIOT/sys/include/net/skald)
+include_directories(lib/RIOT/sys/include/net/sock)
+include_directories(lib/RIOT/sys/include/riotboot)
+include_directories(lib/RIOT/sys/include/xtimer)
+include_directories(lib/RIOT/sys/libc)
+include_directories(lib/RIOT/sys/libc/include)
+include_directories(lib/RIOT/sys/libc/include/sys)
+include_directories(lib/RIOT/sys/log)
+include_directories(lib/RIOT/sys/log/log_printfnoformat)
+include_directories(lib/RIOT/sys/net/application_layer/emcute)
+include_directories(lib/RIOT/sys/net/gnrc/link_layer/gomach/include)
+include_directories(lib/RIOT/sys/net/gnrc/link_layer/lwmac/include)
+include_directories(lib/RIOT/sys/net/gnrc/netif/include)
+include_directories(lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib)
+include_directories(lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag)
+include_directories(lib/RIOT/sys/net/gnrc/routing/rpl)
+include_directories(lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal)
+include_directories(lib/RIOT/sys/net/gnrc/sock/include)
+include_directories(lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal)
+include_directories(lib/RIOT/sys/net/routing/nhdp)
+include_directories(lib/RIOT/sys/oneway-malloc/include)
+include_directories(lib/RIOT/sys/posix/include)
+include_directories(lib/RIOT/sys/posix/include/arpa)
+include_directories(lib/RIOT/sys/posix/include/netinet)
+include_directories(lib/RIOT/sys/posix/include/sys)
+include_directories(lib/RIOT/sys/posix/pthread/include)
+include_directories(lib/RIOT/sys/quad_math)
+include_directories(lib/RIOT/sys/random/fortuna)
+include_directories(lib/RIOT/sys/random/tinymt32)
+include_directories(lib/RIOT/sys/ubjson)
+include_directories(lib/RIOT/cpu/cortexm_common/include)
+include_directories(lib/RIOT/cpu/cortexm_common/include/vendor)
+
+add_executable(autocomplete
+        lib/RIOT/boards/bluepill/include/board.h
+        lib/RIOT/boards/bluepill/include/gpio_params.h
+        lib/RIOT/boards/bluepill/board.c
+        lib/RIOT/boards/bluepill/doc.txt
+        lib/RIOT/boards/common/stm32f103c8/include/periph_conf.h
+        lib/RIOT/bootloaders/riotboot/main.c
+        lib/RIOT/core/include/assert.h
+        lib/RIOT/core/include/bitarithm.h
+        lib/RIOT/core/include/byteorder.h
+        lib/RIOT/core/include/cib.h
+        lib/RIOT/core/include/clist.h
+        lib/RIOT/core/include/cond.h
+        lib/RIOT/core/include/debug.h
+        lib/RIOT/core/include/irq.h
+        lib/RIOT/core/include/kernel_defines.h
+        lib/RIOT/core/include/kernel_init.h
+        lib/RIOT/core/include/kernel_types.h
+        lib/RIOT/core/include/lifo.h
+        lib/RIOT/core/include/list.h
+        lib/RIOT/core/include/log.h
+        lib/RIOT/core/include/mbox.h
+        lib/RIOT/core/include/msg.h
+        lib/RIOT/core/include/mutex.h
+        lib/RIOT/core/include/native_sched.h
+        lib/RIOT/core/include/panic.h
+        lib/RIOT/core/include/priority_queue.h
+        lib/RIOT/core/include/ringbuffer.h
+        lib/RIOT/core/include/rmutex.h
+        lib/RIOT/core/include/sched.h
+        lib/RIOT/core/include/thread.h
+        lib/RIOT/core/include/thread_flags.h
+        lib/RIOT/core/assert.c
+        lib/RIOT/core/atomic_c11.c
+        lib/RIOT/core/atomic_sync.c
+        lib/RIOT/core/bitarithm.c
+        lib/RIOT/core/clist.c
+        lib/RIOT/core/cond.c
+        lib/RIOT/core/kernel_init.c
+        lib/RIOT/core/lifo.c
+        lib/RIOT/core/mbox.c
+        lib/RIOT/core/msg.c
+        lib/RIOT/core/mutex.c
+        lib/RIOT/core/panic.c
+        lib/RIOT/core/priority_queue.c
+        lib/RIOT/core/ringbuffer.c
+        lib/RIOT/core/rmutex.c
+        lib/RIOT/core/sched.c
+        lib/RIOT/core/thread.c
+        lib/RIOT/core/thread_flags.c
+        lib/RIOT/cpu/stm32_common/dist/clk_conf/clk_conf.c
+        lib/RIOT/cpu/stm32_common/dist/clk_conf/clk_conf.h
+        lib/RIOT/cpu/stm32_common/dist/spi_divtable/spi_divtable.c
+        lib/RIOT/cpu/stm32_common/dist/.gitignore
+        lib/RIOT/cpu/stm32_common/include/cpu_conf_stm32_common.h
+        lib/RIOT/cpu/stm32_common/include/periph_cpu_common.h
+        lib/RIOT/cpu/stm32_common/include/stmclk.h
+        lib/RIOT/cpu/stm32_common/ldscripts/stm32_common.ld
+        lib/RIOT/cpu/stm32_common/periph/dac.c
+        lib/RIOT/cpu/stm32_common/periph/dma.c
+        lib/RIOT/cpu/stm32_common/periph/eeprom.c
+        lib/RIOT/cpu/stm32_common/periph/flash_common.c
+        lib/RIOT/cpu/stm32_common/periph/flashpage.c
+        lib/RIOT/cpu/stm32_common/periph/gpio.c
+        lib/RIOT/cpu/stm32_common/periph/hwrng.c
+        lib/RIOT/cpu/stm32_common/periph/i2c_1.c
+        lib/RIOT/cpu/stm32_common/periph/i2c_2.c
+        lib/RIOT/cpu/stm32_common/periph/pm.c
+        lib/RIOT/cpu/stm32_common/periph/pwm.c
+        lib/RIOT/cpu/stm32_common/periph/qdec.c
+        lib/RIOT/cpu/stm32_common/periph/rtc.c
+        lib/RIOT/cpu/stm32_common/periph/rtt.c
+        lib/RIOT/cpu/stm32_common/periph/spi.c
+        lib/RIOT/cpu/stm32_common/periph/timer.c
+        lib/RIOT/cpu/stm32_common/periph/uart.c
+        lib/RIOT/cpu/stm32_common/cpu_common.c
+        lib/RIOT/cpu/stm32_common/cpu_init.c
+        lib/RIOT/cpu/stm32_common/stmclk.c
+        lib/RIOT/cpu/stm32_common/stmclk_common.c
+        lib/RIOT/cpu/stm32_common/stmclk_l0l1.c
+        lib/RIOT/cpu/stm32l1/include/vendor/stm32l1xx.h
+        lib/RIOT/cpu/stm32l1/include/cpu_conf.h
+        lib/RIOT/cpu/stm32l1/include/periph_cpu.h
+        lib/RIOT/cpu/stm32l1/periph/adc.c
+        lib/RIOT/cpu/stm32l1/vectors.c
+        lib/RIOT/drivers/adcxx1c/include/adcxx1c_params.h
+        lib/RIOT/drivers/adcxx1c/include/adcxx1c_regs.h
+        lib/RIOT/drivers/adcxx1c/adcxx1c.c
+        lib/RIOT/drivers/adcxx1c/adcxx1c_saul.c
+        lib/RIOT/drivers/ads101x/include/ads101x_params.h
+        lib/RIOT/drivers/ads101x/include/ads101x_regs.h
+        lib/RIOT/drivers/ads101x/ads101x.c
+        lib/RIOT/drivers/ads101x/ads101x_saul.c
+        lib/RIOT/drivers/adt7310/adt7310.c
+        lib/RIOT/drivers/adxl345/include/adxl345_params.h
+        lib/RIOT/drivers/adxl345/include/adxl345_regs.h
+        lib/RIOT/drivers/adxl345/adxl345.c
+        lib/RIOT/drivers/adxl345/adxl345_saul.c
+        lib/RIOT/drivers/apa102/include/apa102_params.h
+        lib/RIOT/drivers/apa102/apa102.c
+        lib/RIOT/drivers/at/at.c
+        lib/RIOT/drivers/at30tse75x/at30tse75x.c
+        lib/RIOT/drivers/at86rf2xx/include/at86rf2xx_internal.h
+        lib/RIOT/drivers/at86rf2xx/include/at86rf2xx_netdev.h
+        lib/RIOT/drivers/at86rf2xx/include/at86rf2xx_params.h
+        lib/RIOT/drivers/at86rf2xx/include/at86rf2xx_registers.h
+        lib/RIOT/drivers/at86rf2xx/at86rf2xx.c
+        lib/RIOT/drivers/at86rf2xx/at86rf2xx_getset.c
+        lib/RIOT/drivers/at86rf2xx/at86rf2xx_internal.c
+        lib/RIOT/drivers/at86rf2xx/at86rf2xx_netdev.c
+        lib/RIOT/drivers/ata8520e/include/ata8520e_internals.h
+        lib/RIOT/drivers/ata8520e/include/ata8520e_params.h
+        lib/RIOT/drivers/ata8520e/ata8520e.c
+        lib/RIOT/drivers/bh1750fvi/include/bh1750fvi_internal.h
+        lib/RIOT/drivers/bh1750fvi/include/bh1750fvi_params.h
+        lib/RIOT/drivers/bh1750fvi/bh1750fvi.c
+        lib/RIOT/drivers/bmp180/include/bmp180_internals.h
+        lib/RIOT/drivers/bmp180/include/bmp180_params.h
+        lib/RIOT/drivers/bmp180/bmp180.c
+        lib/RIOT/drivers/bmp180/bmp180_saul.c
+        lib/RIOT/drivers/bmx055/include/bmx055_params.h
+        lib/RIOT/drivers/bmx055/bmx055.c
+        lib/RIOT/drivers/bmx055/bmx055_internal.h
+        lib/RIOT/drivers/bmx055/bmx055_saul.c
+        lib/RIOT/drivers/bmx280/include/bmx280_internals.h
+        lib/RIOT/drivers/bmx280/include/bmx280_params.h
+        lib/RIOT/drivers/bmx280/bmx280.c
+        lib/RIOT/drivers/bmx280/bmx280_saul.c
+        lib/RIOT/drivers/can_trx/can_trx.c
+        lib/RIOT/drivers/cc110x/gnrc_cc110x/gnrc_cc110x.c
+        lib/RIOT/drivers/cc110x/include/cc110x-defaultsettings.h
+        lib/RIOT/drivers/cc110x/include/cc110x-defines.h
+        lib/RIOT/drivers/cc110x/include/cc110x-interface.h
+        lib/RIOT/drivers/cc110x/include/cc110x-internal.h
+        lib/RIOT/drivers/cc110x/include/cc110x-netdev.h
+        lib/RIOT/drivers/cc110x/include/cc110x-spi.h
+        lib/RIOT/drivers/cc110x/include/cc110x_params.h
+        lib/RIOT/drivers/cc110x/include/gnrc_netif_cc110x.h
+        lib/RIOT/drivers/cc110x/cc110x-defaultsettings.c
+        lib/RIOT/drivers/cc110x/cc110x-netdev.c
+        lib/RIOT/drivers/cc110x/cc110x-rxtx.c
+        lib/RIOT/drivers/cc110x/cc110x-spi.c
+        lib/RIOT/drivers/cc110x/cc110x.c
+        lib/RIOT/drivers/cc1xxx_common/gnrc_netif_cc1xxx.c
+        lib/RIOT/drivers/cc2420/include/cc2420_internal.h
+        lib/RIOT/drivers/cc2420/include/cc2420_netdev.h
+        lib/RIOT/drivers/cc2420/include/cc2420_params.h
+        lib/RIOT/drivers/cc2420/include/cc2420_registers.h
+        lib/RIOT/drivers/cc2420/cc2420.c
+        lib/RIOT/drivers/cc2420/cc2420_getset.c
+        lib/RIOT/drivers/cc2420/cc2420_internal.c
+        lib/RIOT/drivers/cc2420/cc2420_netdev.c
+        lib/RIOT/drivers/ccs811/include/ccs811_params.h
+        lib/RIOT/drivers/ccs811/include/ccs811_regs.h
+        lib/RIOT/drivers/ccs811/ccs811.c
+        lib/RIOT/drivers/ccs811/ccs811_saul.c
+        lib/RIOT/drivers/dht/include/dht_params.h
+        lib/RIOT/drivers/dht/dht.c
+        lib/RIOT/drivers/dht/dht_saul.c
+        lib/RIOT/drivers/ds1307/include/ds1307_internal.h
+        lib/RIOT/drivers/ds1307/include/ds1307_params.h
+        lib/RIOT/drivers/ds1307/ds1307.c
+        lib/RIOT/drivers/ds18/include/ds18_params.h
+        lib/RIOT/drivers/ds18/ds18.c
+        lib/RIOT/drivers/ds18/ds18_internal.h
+        lib/RIOT/drivers/ds18/ds18_saul.c
+        lib/RIOT/drivers/dsp0401/include/dsp0401_params.h
+        lib/RIOT/drivers/dsp0401/dsp0401.c
+        lib/RIOT/drivers/dynamixel/include/dynamixel_crc.h
+        lib/RIOT/drivers/dynamixel/include/dynamixel_protocol.h
+        lib/RIOT/drivers/dynamixel/include/dynamixel_reader.h
+        lib/RIOT/drivers/dynamixel/include/dynamixel_writer.h
+        lib/RIOT/drivers/dynamixel/crc.c
+        lib/RIOT/drivers/dynamixel/dynamixel.c
+        lib/RIOT/drivers/dynamixel/reader.c
+        lib/RIOT/drivers/dynamixel/writer.c
+        lib/RIOT/drivers/enc28j60/include/enc28j60_params.h
+        lib/RIOT/drivers/enc28j60/include/enc28j60_regs.h
+        lib/RIOT/drivers/enc28j60/enc28j60.c
+        lib/RIOT/drivers/encx24j600/include/encx24j600_defines.h
+        lib/RIOT/drivers/encx24j600/include/encx24j600_internal.h
+        lib/RIOT/drivers/encx24j600/encx24j600.c
+        lib/RIOT/drivers/ethos/ethos.c
+        lib/RIOT/drivers/feetech/include/feetech_protocol.h
+        lib/RIOT/drivers/feetech/include/feetech_reader.h
+        lib/RIOT/drivers/feetech/include/feetech_writer.h
+        lib/RIOT/drivers/feetech/feetech.c
+        lib/RIOT/drivers/feetech/reader.c
+        lib/RIOT/drivers/feetech/writer.c
+        lib/RIOT/drivers/fxos8700/include/fxos8700_params.h
+        lib/RIOT/drivers/fxos8700/include/fxos8700_regs.h
+        lib/RIOT/drivers/fxos8700/fxos8700.c
+        lib/RIOT/drivers/fxos8700/fxos8700_saul.c
+        lib/RIOT/drivers/grove_ledbar/include/grove_ledbar_params.h
+        lib/RIOT/drivers/grove_ledbar/grove_ledbar.c
+        lib/RIOT/drivers/grove_ledbar/grove_ledbar_saul.c
+        lib/RIOT/drivers/hd44780/include/hd44780_internal.h
+        lib/RIOT/drivers/hd44780/hd44780.c
+        lib/RIOT/drivers/hdc1000/include/hdc1000_params.h
+        lib/RIOT/drivers/hdc1000/include/hdc1000_regs.h
+        lib/RIOT/drivers/hdc1000/hdc1000.c
+        lib/RIOT/drivers/hdc1000/hdc1000_saul.c
+        lib/RIOT/drivers/hih6130/hih6130.c
+        lib/RIOT/drivers/hts221/include/hts221_params.h
+        lib/RIOT/drivers/hts221/include/hts221_regs.h
+        lib/RIOT/drivers/hts221/hts221.c
+        lib/RIOT/drivers/hts221/hts221_saul.c
+        lib/RIOT/drivers/ina220/include/ina220-regs.h
+        lib/RIOT/drivers/ina220/ina220.c
+        lib/RIOT/drivers/include/can/can_trx.h
+        lib/RIOT/drivers/include/can/candev.h
+        lib/RIOT/drivers/include/net/netdev/ble.h
+        lib/RIOT/drivers/include/net/netdev/eth.h
+        lib/RIOT/drivers/include/net/netdev/ieee802154.h
+        lib/RIOT/drivers/include/net/netdev/layer.h
+        lib/RIOT/drivers/include/net/netdev.h
+        lib/RIOT/drivers/include/periph/adc.h
+        lib/RIOT/drivers/include/periph/cpuid.h
+        lib/RIOT/drivers/include/periph/dac.h
+        lib/RIOT/drivers/include/periph/dev_enums.h
+        lib/RIOT/drivers/include/periph/eeprom.h
+        lib/RIOT/drivers/include/periph/flashpage.h
+        lib/RIOT/drivers/include/periph/gpio.h
+        lib/RIOT/drivers/include/periph/hwrng.h
+        lib/RIOT/drivers/include/periph/i2c.h
+        lib/RIOT/drivers/include/periph/init.h
+        lib/RIOT/drivers/include/periph/pm.h
+        lib/RIOT/drivers/include/periph/pwm.h
+        lib/RIOT/drivers/include/periph/qdec.h
+        lib/RIOT/drivers/include/periph/rtc.h
+        lib/RIOT/drivers/include/periph/rtt.h
+        lib/RIOT/drivers/include/periph/spi.h
+        lib/RIOT/drivers/include/periph/timer.h
+        lib/RIOT/drivers/include/periph/uart.h
+        lib/RIOT/drivers/include/saul/periph.h
+        lib/RIOT/drivers/include/adcxx1c.h
+        lib/RIOT/drivers/include/ads101x.h
+        lib/RIOT/drivers/include/adt7310.h
+        lib/RIOT/drivers/include/adxl345.h
+        lib/RIOT/drivers/include/apa102.h
+        lib/RIOT/drivers/include/at.h
+        lib/RIOT/drivers/include/at30tse75x.h
+        lib/RIOT/drivers/include/at86rf2xx.h
+        lib/RIOT/drivers/include/ata8520e.h
+        lib/RIOT/drivers/include/bh1750fvi.h
+        lib/RIOT/drivers/include/bmp180.h
+        lib/RIOT/drivers/include/bmx055.h
+        lib/RIOT/drivers/include/bmx280.h
+        lib/RIOT/drivers/include/cc110x.h
+        lib/RIOT/drivers/include/cc1xxx_common.h
+        lib/RIOT/drivers/include/cc2420.h
+        lib/RIOT/drivers/include/ccs811.h
+        lib/RIOT/drivers/include/dht.h
+        lib/RIOT/drivers/include/diskio.h
+        lib/RIOT/drivers/include/ds1307.h
+        lib/RIOT/drivers/include/ds18.h
+        lib/RIOT/drivers/include/dsp0401.h
+        lib/RIOT/drivers/include/dynamixel.h
+        lib/RIOT/drivers/include/enc28j60.h
+        lib/RIOT/drivers/include/encx24j600.h
+        lib/RIOT/drivers/include/ethos.h
+        lib/RIOT/drivers/include/feetech.h
+        lib/RIOT/drivers/include/flashrom.h
+        lib/RIOT/drivers/include/fxos8700.h
+        lib/RIOT/drivers/include/grove_ledbar.h
+        lib/RIOT/drivers/include/hd44780.h
+        lib/RIOT/drivers/include/hdc1000.h
+        lib/RIOT/drivers/include/hih6130.h
+        lib/RIOT/drivers/include/hts221.h
+        lib/RIOT/drivers/include/ina220.h
+        lib/RIOT/drivers/include/io1_xplained.h
+        lib/RIOT/drivers/include/isl29020.h
+        lib/RIOT/drivers/include/isl29125.h
+        lib/RIOT/drivers/include/jc42.h
+        lib/RIOT/drivers/include/kw2xrf.h
+        lib/RIOT/drivers/include/l3g4200d.h
+        lib/RIOT/drivers/include/lc709203f.h
+        lib/RIOT/drivers/include/led.h
+        lib/RIOT/drivers/include/lis2dh12.h
+        lib/RIOT/drivers/include/lis3dh.h
+        lib/RIOT/drivers/include/lis3mdl.h
+        lib/RIOT/drivers/include/lpd8808.h
+        lib/RIOT/drivers/include/lps331ap.h
+        lib/RIOT/drivers/include/lsm303dlhc.h
+        lib/RIOT/drivers/include/lsm6dsl.h
+        lib/RIOT/drivers/include/mag3110.h
+        lib/RIOT/drivers/include/mma7660.h
+        lib/RIOT/drivers/include/mma8x5x.h
+        lib/RIOT/drivers/include/mpl3115a2.h
+        lib/RIOT/drivers/include/mpu9150.h
+        lib/RIOT/drivers/include/mq3.h
+        lib/RIOT/drivers/include/mrf24j40.h
+        lib/RIOT/drivers/include/mtd.h
+        lib/RIOT/drivers/include/mtd_sdcard.h
+        lib/RIOT/drivers/include/mtd_spi_nor.h
+        lib/RIOT/drivers/include/my9221.h
+        lib/RIOT/drivers/include/nrf24l01p.h
+        lib/RIOT/drivers/include/nvram-spi.h
+        lib/RIOT/drivers/include/nvram.h
+        lib/RIOT/drivers/include/pcd8544.h
+        lib/RIOT/drivers/include/pir.h
+        lib/RIOT/drivers/include/pn532.h
+        lib/RIOT/drivers/include/pulse_counter.h
+        lib/RIOT/drivers/include/rgbled.h
+        lib/RIOT/drivers/include/rn2xx3.h
+        lib/RIOT/drivers/include/saul.h
+        lib/RIOT/drivers/include/sdcard_spi.h
+        lib/RIOT/drivers/include/servo.h
+        lib/RIOT/drivers/include/sht1x.h
+        lib/RIOT/drivers/include/sht3x.h
+        lib/RIOT/drivers/include/si114x.h
+        lib/RIOT/drivers/include/si70xx.h
+        lib/RIOT/drivers/include/slipdev.h
+        lib/RIOT/drivers/include/soft_spi.h
+        lib/RIOT/drivers/include/srf02.h
+        lib/RIOT/drivers/include/srf04.h
+        lib/RIOT/drivers/include/srf08.h
+        lib/RIOT/drivers/include/sx127x.h
+        lib/RIOT/drivers/include/tcs37727.h
+        lib/RIOT/drivers/include/tja1042.h
+        lib/RIOT/drivers/include/tmp006.h
+        lib/RIOT/drivers/include/tps6274x.h
+        lib/RIOT/drivers/include/tsl2561.h
+        lib/RIOT/drivers/include/tsl4531x.h
+        lib/RIOT/drivers/include/vcnl40x0.h
+        lib/RIOT/drivers/include/veml6070.h
+        lib/RIOT/drivers/include/w5100.h
+        lib/RIOT/drivers/include/xbee.h
+        lib/RIOT/drivers/io1_xplained/include/io1_xplained_internals.h
+        lib/RIOT/drivers/io1_xplained/include/io1_xplained_params.h
+        lib/RIOT/drivers/io1_xplained/io1_xplained.c
+        lib/RIOT/drivers/io1_xplained/io1_xplained_saul.c
+        lib/RIOT/drivers/isl29020/include/isl29020-internal.h
+        lib/RIOT/drivers/isl29020/include/isl29020_params.h
+        lib/RIOT/drivers/isl29020/isl29020.c
+        lib/RIOT/drivers/isl29020/isl29020_saul.c
+        lib/RIOT/drivers/isl29125/include/isl29125-internal.h
+        lib/RIOT/drivers/isl29125/include/isl29125_params.h
+        lib/RIOT/drivers/isl29125/isl29125.c
+        lib/RIOT/drivers/jc42/include/jc42_internal.h
+        lib/RIOT/drivers/jc42/include/jc42_params.h
+        lib/RIOT/drivers/jc42/jc42.c
+        lib/RIOT/drivers/jc42/jc42_saul.c
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_getset.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_intern.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_netdev.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_params.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_reg.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_spi.h
+        lib/RIOT/drivers/kw2xrf/include/kw2xrf_tm.h
+        lib/RIOT/drivers/kw2xrf/include/overwrites.h
+        lib/RIOT/drivers/kw2xrf/kw2xrf.c
+        lib/RIOT/drivers/kw2xrf/kw2xrf_getset.c
+        lib/RIOT/drivers/kw2xrf/kw2xrf_intern.c
+        lib/RIOT/drivers/kw2xrf/kw2xrf_netdev.c
+        lib/RIOT/drivers/kw2xrf/kw2xrf_spi.c
+        lib/RIOT/drivers/kw2xrf/kw2xrf_tm.c
+        lib/RIOT/drivers/l3g4200d/include/l3g4200d-regs.h
+        lib/RIOT/drivers/l3g4200d/include/l3g4200d_params.h
+        lib/RIOT/drivers/l3g4200d/l3g4200d.c
+        lib/RIOT/drivers/l3g4200d/l3g4200d_saul.c
+        lib/RIOT/drivers/lc709203f/include/lc709203f_params.h
+        lib/RIOT/drivers/lc709203f/lc709203f.c
+        lib/RIOT/drivers/lis2dh12/include/lis2dh12_params.h
+        lib/RIOT/drivers/lis2dh12/lis2dh12.c
+        lib/RIOT/drivers/lis2dh12/lis2dh12_internal.h
+        lib/RIOT/drivers/lis2dh12/lis2dh12_saul.c
+        lib/RIOT/drivers/lis3dh/include/lis3dh_params.h
+        lib/RIOT/drivers/lis3dh/lis3dh.c
+        lib/RIOT/drivers/lis3dh/lis3dh_saul.c
+        lib/RIOT/drivers/lis3mdl/include/lis3mdl-internal.h
+        lib/RIOT/drivers/lis3mdl/include/lis3mdl_params.h
+        lib/RIOT/drivers/lis3mdl/lis3mdl.c
+        lib/RIOT/drivers/lis3mdl/lis3mdl_saul.c
+        lib/RIOT/drivers/lpd8808/include/lpd8808_params.h
+        lib/RIOT/drivers/lpd8808/lpd8808.c
+        lib/RIOT/drivers/lps331ap/include/lps331ap-internal.h
+        lib/RIOT/drivers/lps331ap/include/lps331ap_params.h
+        lib/RIOT/drivers/lps331ap/lps331ap.c
+        lib/RIOT/drivers/lps331ap/lps331ap_saul.c
+        lib/RIOT/drivers/lsm303dlhc/include/lsm303dlhc-internal.h
+        lib/RIOT/drivers/lsm303dlhc/include/lsm303dlhc_params.h
+        lib/RIOT/drivers/lsm303dlhc/lsm303dlhc.c
+        lib/RIOT/drivers/lsm303dlhc/lsm303dlhc_saul.c
+        lib/RIOT/drivers/lsm6dsl/include/lsm6dsl_internal.h
+        lib/RIOT/drivers/lsm6dsl/include/lsm6dsl_params.h
+        lib/RIOT/drivers/lsm6dsl/lsm6dsl.c
+        lib/RIOT/drivers/lsm6dsl/lsm6dsl_saul.c
+        lib/RIOT/drivers/mag3110/include/mag3110_params.h
+        lib/RIOT/drivers/mag3110/include/mag3110_reg.h
+        lib/RIOT/drivers/mag3110/mag3110.c
+        lib/RIOT/drivers/mag3110/mag3110_saul.c
+        lib/RIOT/drivers/mma7660/include/mma7660_params.h
+        lib/RIOT/drivers/mma7660/include/mma7660_reg.h
+        lib/RIOT/drivers/mma7660/mma7660.c
+        lib/RIOT/drivers/mma7660/mma7660_saul.c
+        lib/RIOT/drivers/mma8x5x/include/mma8x5x_params.h
+        lib/RIOT/drivers/mma8x5x/include/mma8x5x_regs.h
+        lib/RIOT/drivers/mma8x5x/mma8x5x.c
+        lib/RIOT/drivers/mma8x5x/mma8x5x_saul.c
+        lib/RIOT/drivers/mpl3115a2/include/mpl3115a2_params.h
+        lib/RIOT/drivers/mpl3115a2/include/mpl3115a2_reg.h
+        lib/RIOT/drivers/mpl3115a2/mpl3115a2.c
+        lib/RIOT/drivers/mpl3115a2/mpl3115a2_saul.c
+        lib/RIOT/drivers/mpu9150/include/mpu9150-regs.h
+        lib/RIOT/drivers/mpu9150/include/mpu9150_params.h
+        lib/RIOT/drivers/mpu9150/mpu9150.c
+        lib/RIOT/drivers/mpu9150/mpu9150_saul.c
+        lib/RIOT/drivers/mq3/mq3.c
+        lib/RIOT/drivers/mrf24j40/include/mrf24j40_internal.h
+        lib/RIOT/drivers/mrf24j40/include/mrf24j40_netdev.h
+        lib/RIOT/drivers/mrf24j40/include/mrf24j40_params.h
+        lib/RIOT/drivers/mrf24j40/include/mrf24j40_registers.h
+        lib/RIOT/drivers/mrf24j40/mrf24j40.c
+        lib/RIOT/drivers/mrf24j40/mrf24j40_getset.c
+        lib/RIOT/drivers/mrf24j40/mrf24j40_internal.c
+        lib/RIOT/drivers/mrf24j40/mrf24j40_netdev.c
+        lib/RIOT/drivers/mtd/mtd-vfs.c
+        lib/RIOT/drivers/mtd/mtd.c
+        lib/RIOT/drivers/mtd_sdcard/mtd_sdcard.c
+        lib/RIOT/drivers/mtd_spi_nor/mtd_spi_nor.c
+        lib/RIOT/drivers/mtd_spi_nor/mtd_spi_nor_configs.c
+        lib/RIOT/drivers/my9221/include/my9221_internal.h
+        lib/RIOT/drivers/my9221/my9221.c
+        lib/RIOT/drivers/netdev_eth/netdev_eth.c
+        lib/RIOT/drivers/netdev_ieee802154/netdev_ieee802154.c
+        lib/RIOT/drivers/netdev_layer/netdev_layer.c
+        lib/RIOT/drivers/nrf24l01p/include/nrf24l01p_settings.h
+        lib/RIOT/drivers/nrf24l01p/nrf24l01p.c
+        lib/RIOT/drivers/nvram/nvram-vfs.c
+        lib/RIOT/drivers/nvram_spi/nvram-spi.c
+        lib/RIOT/drivers/pcd8544/include/pcd8544_internal.h
+        lib/RIOT/drivers/pcd8544/pcd8544.c
+        lib/RIOT/drivers/periph_common/cpuid.c
+        lib/RIOT/drivers/periph_common/eeprom.c
+        lib/RIOT/drivers/periph_common/flashpage.c
+        lib/RIOT/drivers/periph_common/i2c.c
+        lib/RIOT/drivers/periph_common/init.c
+        lib/RIOT/drivers/periph_common/pm.c
+        lib/RIOT/drivers/periph_common/spi.c
+        lib/RIOT/drivers/periph_common/timer.c
+        lib/RIOT/drivers/pir/include/pir_params.h
+        lib/RIOT/drivers/pir/pir.c
+        lib/RIOT/drivers/pir/pir_saul.c
+        lib/RIOT/drivers/pn532/pn532.c
+        lib/RIOT/drivers/pulse_counter/include/pulse_counter_params.h
+        lib/RIOT/drivers/pulse_counter/pulse_counter.c
+        lib/RIOT/drivers/pulse_counter/pulse_counter_saul.c
+        lib/RIOT/drivers/rgbled/rgbled.c
+        lib/RIOT/drivers/rn2xx3/include/rn2xx3_internal.h
+        lib/RIOT/drivers/rn2xx3/include/rn2xx3_params.h
+        lib/RIOT/drivers/rn2xx3/rn2xx3.c
+        lib/RIOT/drivers/rn2xx3/rn2xx3_getset.c
+        lib/RIOT/drivers/rn2xx3/rn2xx3_internal.c
+        lib/RIOT/drivers/saul/adc_saul.c
+        lib/RIOT/drivers/saul/gpio_saul.c
+        lib/RIOT/drivers/saul/saul.c
+        lib/RIOT/drivers/saul/saul_str.c
+        lib/RIOT/drivers/sdcard_spi/include/sdcard_spi_internal.h
+        lib/RIOT/drivers/sdcard_spi/include/sdcard_spi_params.h
+        lib/RIOT/drivers/sdcard_spi/sdcard_spi.c
+        lib/RIOT/drivers/servo/servo.c
+        lib/RIOT/drivers/sht1x/include/sht1x_defines.h
+        lib/RIOT/drivers/sht1x/include/sht1x_params.h
+        lib/RIOT/drivers/sht1x/sht1x.c
+        lib/RIOT/drivers/sht1x/sht1x_saul.c
+        lib/RIOT/drivers/sht3x/include/sht3x_params.h
+        lib/RIOT/drivers/sht3x/sht3x.c
+        lib/RIOT/drivers/sht3x/sht3x_saul.c
+        lib/RIOT/drivers/si114x/include/si114x_internals.h
+        lib/RIOT/drivers/si114x/include/si114x_params.h
+        lib/RIOT/drivers/si114x/si114x.c
+        lib/RIOT/drivers/si114x/si114x_saul.c
+        lib/RIOT/drivers/si70xx/include/si70xx_internals.h
+        lib/RIOT/drivers/si70xx/include/si70xx_params.h
+        lib/RIOT/drivers/si70xx/si70xx.c
+        lib/RIOT/drivers/si70xx/si70xx_saul.c
+        lib/RIOT/drivers/slipdev/slipdev.c
+        lib/RIOT/drivers/soft_spi/include/soft_spi_params.h
+        lib/RIOT/drivers/soft_spi/soft_spi.c
+        lib/RIOT/drivers/srf02/srf02.c
+        lib/RIOT/drivers/srf04/include/srf04_params.h
+        lib/RIOT/drivers/srf04/srf04.c
+        lib/RIOT/drivers/srf08/srf08.c
+        lib/RIOT/drivers/sx127x/include/sx127x_internal.h
+        lib/RIOT/drivers/sx127x/include/sx127x_netdev.h
+        lib/RIOT/drivers/sx127x/include/sx127x_params.h
+        lib/RIOT/drivers/sx127x/include/sx127x_registers.h
+        lib/RIOT/drivers/sx127x/sx127x.c
+        lib/RIOT/drivers/sx127x/sx127x_getset.c
+        lib/RIOT/drivers/sx127x/sx127x_internal.c
+        lib/RIOT/drivers/sx127x/sx127x_netdev.c
+        lib/RIOT/drivers/tcs37727/include/tcs37727-internal.h
+        lib/RIOT/drivers/tcs37727/include/tcs37727_params.h
+        lib/RIOT/drivers/tcs37727/tcs37727.c
+        lib/RIOT/drivers/tcs37727/tcs37727_saul.c
+        lib/RIOT/drivers/tja1042/tja1042.c
+        lib/RIOT/drivers/tmp006/include/tmp006_params.h
+        lib/RIOT/drivers/tmp006/include/tmp006_regs.h
+        lib/RIOT/drivers/tmp006/tmp006.c
+        lib/RIOT/drivers/tmp006/tmp006_saul.c
+        lib/RIOT/drivers/tps6274x/include/tps6274x_params.h
+        lib/RIOT/drivers/tps6274x/tps6274x.c
+        lib/RIOT/drivers/tsl2561/include/tsl2561_internals.h
+        lib/RIOT/drivers/tsl2561/include/tsl2561_params.h
+        lib/RIOT/drivers/tsl2561/tsl2561.c
+        lib/RIOT/drivers/tsl2561/tsl2561_saul.c
+        lib/RIOT/drivers/tsl4531x/include/tsl4531x_internals.h
+        lib/RIOT/drivers/tsl4531x/include/tsl4531x_params.h
+        lib/RIOT/drivers/tsl4531x/tsl4531x.c
+        lib/RIOT/drivers/tsl4531x/tsl4531x_saul.c
+        lib/RIOT/drivers/uart_half_duplex/include/uart_half_duplex.h
+        lib/RIOT/drivers/uart_half_duplex/uart_half_duplex.c
+        lib/RIOT/drivers/vcnl40x0/include/vcnl40x0_internals.h
+        lib/RIOT/drivers/vcnl40x0/include/vcnl40x0_params.h
+        lib/RIOT/drivers/vcnl40x0/vcnl40x0.c
+        lib/RIOT/drivers/vcnl40x0/vcnl40x0_saul.c
+        lib/RIOT/drivers/veml6070/include/veml6070_params.h
+        lib/RIOT/drivers/veml6070/veml6070.c
+        lib/RIOT/drivers/veml6070/veml6070_saul.c
+        lib/RIOT/drivers/w5100/include/w5100_params.h
+        lib/RIOT/drivers/w5100/include/w5100_regs.h
+        lib/RIOT/drivers/w5100/w5100.c
+        lib/RIOT/drivers/xbee/include/gnrc_netif_xbee.h
+        lib/RIOT/drivers/xbee/include/xbee_params.h
+        lib/RIOT/drivers/xbee/gnrc_xbee.c
+        lib/RIOT/drivers/xbee/xbee.c
+        lib/RIOT/pkg/emb6/contrib/netdev/emb6_netdev.c
+        lib/RIOT/pkg/emb6/contrib/sock/udp/emb6_sock_udp.c
+        lib/RIOT/pkg/emb6/contrib/board_conf.c
+        lib/RIOT/pkg/emb6/contrib/target.c
+        lib/RIOT/pkg/emb6/include/emb6/netdev.h
+        lib/RIOT/pkg/emb6/include/board_conf.h
+        lib/RIOT/pkg/emb6/include/sock_types.h
+        lib/RIOT/pkg/fatfs/fatfs_diskio/mtd/include/fatfs_diskio_mtd.h
+        lib/RIOT/pkg/fatfs/fatfs_diskio/mtd/mtd_diskio.c
+        lib/RIOT/pkg/fatfs/fatfs_vfs/fatfs_vfs.c
+        lib/RIOT/pkg/libb2/include/config.h
+        lib/RIOT/pkg/littlefs/fs/littlefs_fs.c
+        lib/RIOT/pkg/lua/contrib/binsearch.c
+        lib/RIOT/pkg/lua/contrib/binsearch.h
+        lib/RIOT/pkg/lua/contrib/lua_loadlib.c
+        lib/RIOT/pkg/lua/contrib/lua_run.c
+        lib/RIOT/pkg/lua/include/lua_builtin.h
+        lib/RIOT/pkg/lua/include/lua_loadlib.h
+        lib/RIOT/pkg/lua/include/lua_run.h
+        lib/RIOT/pkg/lwip/contrib/netdev/lwip_netdev.c
+        lib/RIOT/pkg/lwip/contrib/sock/ip/lwip_sock_ip.c
+        lib/RIOT/pkg/lwip/contrib/sock/tcp/lwip_sock_tcp.c
+        lib/RIOT/pkg/lwip/contrib/sock/udp/lwip_sock_udp.c
+        lib/RIOT/pkg/lwip/contrib/sock/lwip_sock.c
+        lib/RIOT/pkg/lwip/contrib/lwip.c
+        lib/RIOT/pkg/lwip/contrib/sys_arch.c
+        lib/RIOT/pkg/lwip/include/arch/cc.h
+        lib/RIOT/pkg/lwip/include/arch/sys_arch.h
+        lib/RIOT/pkg/lwip/include/lwip/netif/netdev.h
+        lib/RIOT/pkg/lwip/include/lwip/sock_internal.h
+        lib/RIOT/pkg/lwip/include/lwip.h
+        lib/RIOT/pkg/lwip/include/lwipopts.h
+        lib/RIOT/pkg/lwip/include/sock_types.h
+        lib/RIOT/pkg/nimble/contrib/include/nimble_riot.h
+        lib/RIOT/pkg/nimble/contrib/nimble_riot.c
+        lib/RIOT/pkg/nordic_softdevice_ble/src/app_error.c
+        lib/RIOT/pkg/nordic_softdevice_ble/src/ble-core.c
+        lib/RIOT/pkg/nordic_softdevice_ble/src/ble-core.h
+        lib/RIOT/pkg/nordic_softdevice_ble/src/ble-mac.c
+        lib/RIOT/pkg/nordic_softdevice_ble/src/ble-mac.h
+        lib/RIOT/pkg/nordic_softdevice_ble/src/gnrc_nordic_ble_6lowpan.c
+        lib/RIOT/pkg/nordic_softdevice_ble/src/gnrc_nordic_ble_6lowpan.h
+        lib/RIOT/pkg/openthread/contrib/netdev/openthread_netdev.c
+        lib/RIOT/pkg/openthread/contrib/openthread.c
+        lib/RIOT/pkg/openthread/contrib/platform_alarm.c
+        lib/RIOT/pkg/openthread/contrib/platform_diag.c
+        lib/RIOT/pkg/openthread/contrib/platform_functions_wrapper.c
+        lib/RIOT/pkg/openthread/contrib/platform_logging.c
+        lib/RIOT/pkg/openthread/contrib/platform_misc.c
+        lib/RIOT/pkg/openthread/contrib/platform_radio.c
+        lib/RIOT/pkg/openthread/contrib/platform_random.c
+        lib/RIOT/pkg/openthread/contrib/platform_settings.c
+        lib/RIOT/pkg/openthread/contrib/platform_uart.c
+        lib/RIOT/pkg/openthread/include/ot.h
+        lib/RIOT/pkg/openthread/include/platform_config.h
+        lib/RIOT/pkg/semtech-loramac/contrib/semtech_loramac.c
+        lib/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_getset.c
+        lib/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_radio.c
+        lib/RIOT/pkg/semtech-loramac/contrib/semtech_loramac_timer.c
+        lib/RIOT/pkg/semtech-loramac/include/semtech-loramac/timer.h
+        lib/RIOT/pkg/semtech-loramac/include/semtech_loramac.h
+        lib/RIOT/pkg/spiffs/fs/spiffs_fs.c
+        lib/RIOT/pkg/spiffs/include/spiffs_config.h
+        lib/RIOT/pkg/tlsf/contrib/include/tlsf-malloc.h
+        lib/RIOT/pkg/tlsf/contrib/tlsf-malloc.c
+        lib/RIOT/pkg/u8g2/src/csrc/u8g2_riotos.c
+        lib/RIOT/pkg/ucglib/src/csrc/ucg_riotos.c
+        lib/RIOT/sys/analog_util/adc_util.c
+        lib/RIOT/sys/analog_util/dac_util.c
+        lib/RIOT/sys/arduino/include/arduino.hpp
+        lib/RIOT/sys/arduino/include/serialport.hpp
+        lib/RIOT/sys/arduino/base.cpp
+        lib/RIOT/sys/arduino/serialport.cpp
+        lib/RIOT/sys/auto_init/can/auto_init_can.c
+        lib/RIOT/sys/auto_init/can/auto_init_can_native.c
+        lib/RIOT/sys/auto_init/netif/auto_init_at86rf2xx.c
+        lib/RIOT/sys/auto_init/netif/auto_init_cc110x.c
+        lib/RIOT/sys/auto_init/netif/auto_init_cc2420.c
+        lib/RIOT/sys/auto_init/netif/auto_init_cc2538_rf.c
+        lib/RIOT/sys/auto_init/netif/auto_init_enc28j60.c
+        lib/RIOT/sys/auto_init/netif/auto_init_encx24j600.c
+        lib/RIOT/sys/auto_init/netif/auto_init_ethos.c
+        lib/RIOT/sys/auto_init/netif/auto_init_kw2xrf.c
+        lib/RIOT/sys/auto_init/netif/auto_init_mrf24j40.c
+        lib/RIOT/sys/auto_init/netif/auto_init_netdev_tap.c
+        lib/RIOT/sys/auto_init/netif/auto_init_slipdev.c
+        lib/RIOT/sys/auto_init/netif/auto_init_socket_zep.c
+        lib/RIOT/sys/auto_init/netif/auto_init_sx127x.c
+        lib/RIOT/sys/auto_init/netif/auto_init_w5100.c
+        lib/RIOT/sys/auto_init/netif/auto_init_xbee.c
+        lib/RIOT/sys/auto_init/saul/auto_init_adc.c
+        lib/RIOT/sys/auto_init/saul/auto_init_adcxx1c.c
+        lib/RIOT/sys/auto_init/saul/auto_init_ads101x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_adxl345.c
+        lib/RIOT/sys/auto_init/saul/auto_init_bmp180.c
+        lib/RIOT/sys/auto_init/saul/auto_init_bmx055.c
+        lib/RIOT/sys/auto_init/saul/auto_init_bmx280.c
+        lib/RIOT/sys/auto_init/saul/auto_init_ccs811.c
+        lib/RIOT/sys/auto_init/saul/auto_init_dht.c
+        lib/RIOT/sys/auto_init/saul/auto_init_ds18.c
+        lib/RIOT/sys/auto_init/saul/auto_init_fxos8700.c
+        lib/RIOT/sys/auto_init/saul/auto_init_gpio.c
+        lib/RIOT/sys/auto_init/saul/auto_init_grove_ledbar.c
+        lib/RIOT/sys/auto_init/saul/auto_init_hdc1000.c
+        lib/RIOT/sys/auto_init/saul/auto_init_hts221.c
+        lib/RIOT/sys/auto_init/saul/auto_init_io1_xplained.c
+        lib/RIOT/sys/auto_init/saul/auto_init_isl29020.c
+        lib/RIOT/sys/auto_init/saul/auto_init_jc42.c
+        lib/RIOT/sys/auto_init/saul/auto_init_l3g4200d.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lis2dh12.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lis3dh.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lis3mdl.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lps331ap.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lsm303dlhc.c
+        lib/RIOT/sys/auto_init/saul/auto_init_lsm6dsl.c
+        lib/RIOT/sys/auto_init/saul/auto_init_mag3110.c
+        lib/RIOT/sys/auto_init/saul/auto_init_mma7660.c
+        lib/RIOT/sys/auto_init/saul/auto_init_mma8x5x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_mpl3115a2.c
+        lib/RIOT/sys/auto_init/saul/auto_init_mpu9150.c
+        lib/RIOT/sys/auto_init/saul/auto_init_pir.c
+        lib/RIOT/sys/auto_init/saul/auto_init_pulse_counter.c
+        lib/RIOT/sys/auto_init/saul/auto_init_sht1x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_sht3x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_si114x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_si70xx.c
+        lib/RIOT/sys/auto_init/saul/auto_init_tcs37727.c
+        lib/RIOT/sys/auto_init/saul/auto_init_tmp006.c
+        lib/RIOT/sys/auto_init/saul/auto_init_tsl2561.c
+        lib/RIOT/sys/auto_init/saul/auto_init_tsl4531x.c
+        lib/RIOT/sys/auto_init/saul/auto_init_vcnl40x0.c
+        lib/RIOT/sys/auto_init/saul/auto_init_veml6070.c
+        lib/RIOT/sys/auto_init/storage/auto_init_sdcard_spi.c
+        lib/RIOT/sys/auto_init/auto_init.c
+        lib/RIOT/sys/base64/base64.c
+        lib/RIOT/sys/benchmark/benchmark.c
+        lib/RIOT/sys/bitfield/bitfield.c
+        lib/RIOT/sys/bloom/bloom.c
+        lib/RIOT/sys/can/conn/isotp.c
+        lib/RIOT/sys/can/conn/raw.c
+        lib/RIOT/sys/can/isotp/isotp.c
+        lib/RIOT/sys/can/device.c
+        lib/RIOT/sys/can/dll.c
+        lib/RIOT/sys/can/pkt.c
+        lib/RIOT/sys/can/router.c
+        lib/RIOT/sys/cb_mux/cb_mux.c
+        lib/RIOT/sys/checksum/crc16_ccitt.c
+        lib/RIOT/sys/checksum/fletcher16.c
+        lib/RIOT/sys/checksum/fletcher32.c
+        lib/RIOT/sys/checksum/ucrc16.c
+        lib/RIOT/sys/color/color.c
+        lib/RIOT/sys/cpp11-compat/include/riot/detail/thread_util.hpp
+        lib/RIOT/sys/cpp11-compat/include/riot/chrono.hpp
+        lib/RIOT/sys/cpp11-compat/include/riot/condition_variable.hpp
+        lib/RIOT/sys/cpp11-compat/include/riot/mutex.hpp
+        lib/RIOT/sys/cpp11-compat/include/riot/thread.hpp
+        lib/RIOT/sys/cpp11-compat/condition_variable.cpp
+        lib/RIOT/sys/cpp11-compat/cppsupport.cpp
+        lib/RIOT/sys/cpp11-compat/mutex.cpp
+        lib/RIOT/sys/cpp11-compat/thread.cpp
+        lib/RIOT/sys/crypto/modes/cbc.c
+        lib/RIOT/sys/crypto/modes/ccm.c
+        lib/RIOT/sys/crypto/modes/ctr.c
+        lib/RIOT/sys/crypto/modes/ecb.c
+        lib/RIOT/sys/crypto/aes.c
+        lib/RIOT/sys/crypto/chacha.c
+        lib/RIOT/sys/crypto/chacha_prng.c
+        lib/RIOT/sys/crypto/ciphers.c
+        lib/RIOT/sys/crypto/helper.c
+        lib/RIOT/sys/crypto/poly1305.c
+        lib/RIOT/sys/div/div.c
+        lib/RIOT/sys/ecc/golay2412.c
+        lib/RIOT/sys/ecc/hamming256.c
+        lib/RIOT/sys/ecc/repetition.c
+        lib/RIOT/sys/eepreg/eepreg.c
+        lib/RIOT/sys/embunit/AssertImpl.c
+        lib/RIOT/sys/embunit/ColorOutputter.c
+        lib/RIOT/sys/embunit/ColorTextColors.h
+        lib/RIOT/sys/embunit/ColorTextOutputter.c
+        lib/RIOT/sys/embunit/CompilerOutputter.c
+        lib/RIOT/sys/embunit/RepeatedTest.c
+        lib/RIOT/sys/embunit/stdImpl.c
+        lib/RIOT/sys/embunit/TestCaller.c
+        lib/RIOT/sys/embunit/TestCase.c
+        lib/RIOT/sys/embunit/TestResult.c
+        lib/RIOT/sys/embunit/TestRunner.c
+        lib/RIOT/sys/embunit/TestSuite.c
+        lib/RIOT/sys/embunit/TextOutputter.c
+        lib/RIOT/sys/embunit/TextUIRunner.c
+        lib/RIOT/sys/embunit/XMLOutputter.c
+        lib/RIOT/sys/event/callback.c
+        lib/RIOT/sys/event/event.c
+        lib/RIOT/sys/event/timeout.c
+        lib/RIOT/sys/evtimer/evtimer.c
+        lib/RIOT/sys/fmt/fmt.c
+        lib/RIOT/sys/fs/constfs/constfs.c
+        lib/RIOT/sys/fs/devfs/auto_init_devfs.c
+        lib/RIOT/sys/fs/devfs/devfs.c
+        lib/RIOT/sys/hashes/cmac.c
+        lib/RIOT/sys/hashes/hashes.c
+        lib/RIOT/sys/hashes/md5.c
+        lib/RIOT/sys/hashes/sha1.c
+        lib/RIOT/sys/hashes/sha256.c
+        lib/RIOT/sys/hashes/sha3.c
+        lib/RIOT/sys/include/can/conn/isotp.h
+        lib/RIOT/sys/include/can/conn/raw.h
+        lib/RIOT/sys/include/can/can.h
+        lib/RIOT/sys/include/can/common.h
+        lib/RIOT/sys/include/can/device.h
+        lib/RIOT/sys/include/can/dll.h
+        lib/RIOT/sys/include/can/isotp.h
+        lib/RIOT/sys/include/can/pkt.h
+        lib/RIOT/sys/include/can/raw.h
+        lib/RIOT/sys/include/can/router.h
+        lib/RIOT/sys/include/checksum/crc16_ccitt.h
+        lib/RIOT/sys/include/checksum/fletcher16.h
+        lib/RIOT/sys/include/checksum/fletcher32.h
+        lib/RIOT/sys/include/checksum/ucrc16.h
+        lib/RIOT/sys/include/crypto/modes/cbc.h
+        lib/RIOT/sys/include/crypto/modes/ccm.h
+        lib/RIOT/sys/include/crypto/modes/ctr.h
+        lib/RIOT/sys/include/crypto/modes/ecb.h
+        lib/RIOT/sys/include/crypto/aes.h
+        lib/RIOT/sys/include/crypto/chacha.h
+        lib/RIOT/sys/include/crypto/ciphers.h
+        lib/RIOT/sys/include/crypto/helper.h
+        lib/RIOT/sys/include/crypto/poly1305.h
+        lib/RIOT/sys/include/ecc/golay2412.h
+        lib/RIOT/sys/include/ecc/hamming256.h
+        lib/RIOT/sys/include/ecc/repetition.h
+        lib/RIOT/sys/include/embUnit/AssertImpl.h
+        lib/RIOT/sys/include/embUnit/ColorOutputter.h
+        lib/RIOT/sys/include/embUnit/ColorTextOutputter.h
+        lib/RIOT/sys/include/embUnit/CompilerOutputter.h
+        lib/RIOT/sys/include/embUnit/embUnit.h
+        lib/RIOT/sys/include/embUnit/embUnit_config.h
+        lib/RIOT/sys/include/embUnit/HelperMacro.h
+        lib/RIOT/sys/include/embUnit/Outputter.h
+        lib/RIOT/sys/include/embUnit/RepeatedTest.h
+        lib/RIOT/sys/include/embUnit/stdImpl.h
+        lib/RIOT/sys/include/embUnit/Test.h
+        lib/RIOT/sys/include/embUnit/TestCaller.h
+        lib/RIOT/sys/include/embUnit/TestCase.h
+        lib/RIOT/sys/include/embUnit/TestListener.h
+        lib/RIOT/sys/include/embUnit/TestResult.h
+        lib/RIOT/sys/include/embUnit/TestRunner.h
+        lib/RIOT/sys/include/embUnit/TestSuite.h
+        lib/RIOT/sys/include/embUnit/TextOutputter.h
+        lib/RIOT/sys/include/embUnit/TextUIRunner.h
+        lib/RIOT/sys/include/embUnit/XMLOutputter.h
+        lib/RIOT/sys/include/event/callback.h
+        lib/RIOT/sys/include/event/timeout.h
+        lib/RIOT/sys/include/fs/constfs.h
+        lib/RIOT/sys/include/fs/devfs.h
+        lib/RIOT/sys/include/fs/fatfs.h
+        lib/RIOT/sys/include/fs/littlefs_fs.h
+        lib/RIOT/sys/include/fs/spiffs_fs.h
+        lib/RIOT/sys/include/hashes/cmac.h
+        lib/RIOT/sys/include/hashes/md5.h
+        lib/RIOT/sys/include/hashes/sha1.h
+        lib/RIOT/sys/include/hashes/sha256.h
+        lib/RIOT/sys/include/hashes/sha3.h
+        lib/RIOT/sys/include/net/bluetil/ad.h
+        lib/RIOT/sys/include/net/cord/common.h
+        lib/RIOT/sys/include/net/cord/config.h
+        lib/RIOT/sys/include/net/cord/ep.h
+        lib/RIOT/sys/include/net/cord/ep_standalone.h
+        lib/RIOT/sys/include/net/cord/epsim.h
+        lib/RIOT/sys/include/net/ethernet/hdr.h
+        lib/RIOT/sys/include/net/fib/table.h
+        lib/RIOT/sys/include/net/gnrc/gomach/gomach.h
+        lib/RIOT/sys/include/net/gnrc/gomach/hdr.h
+        lib/RIOT/sys/include/net/gnrc/gomach/timeout.h
+        lib/RIOT/sys/include/net/gnrc/gomach/types.h
+        lib/RIOT/sys/include/net/gnrc/icmpv6/echo.h
+        lib/RIOT/sys/include/net/gnrc/icmpv6/error.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/ext/rh.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib/abr.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib/conf.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib/ft.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib/nc.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib/pl.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/blacklist.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/ext.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/hdr.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/nib.h
+        lib/RIOT/sys/include/net/gnrc/ipv6/whitelist.h
+        lib/RIOT/sys/include/net/gnrc/lwmac/hdr.h
+        lib/RIOT/sys/include/net/gnrc/lwmac/lwmac.h
+        lib/RIOT/sys/include/net/gnrc/lwmac/timeout.h
+        lib/RIOT/sys/include/net/gnrc/lwmac/types.h
+        lib/RIOT/sys/include/net/gnrc/mac/internal.h
+        lib/RIOT/sys/include/net/gnrc/mac/mac.h
+        lib/RIOT/sys/include/net/gnrc/mac/timeout.h
+        lib/RIOT/sys/include/net/gnrc/mac/types.h
+        lib/RIOT/sys/include/net/gnrc/netif/6lo.h
+        lib/RIOT/sys/include/net/gnrc/netif/conf.h
+        lib/RIOT/sys/include/net/gnrc/netif/ethernet.h
+        lib/RIOT/sys/include/net/gnrc/netif/flags.h
+        lib/RIOT/sys/include/net/gnrc/netif/hdr.h
+        lib/RIOT/sys/include/net/gnrc/netif/ieee802154.h
+        lib/RIOT/sys/include/net/gnrc/netif/internal.h
+        lib/RIOT/sys/include/net/gnrc/netif/ipv6.h
+        lib/RIOT/sys/include/net/gnrc/netif/mac.h
+        lib/RIOT/sys/include/net/gnrc/netif/raw.h
+        lib/RIOT/sys/include/net/gnrc/rpl/dodag.h
+        lib/RIOT/sys/include/net/gnrc/rpl/of_manager.h
+        lib/RIOT/sys/include/net/gnrc/rpl/p2p.h
+        lib/RIOT/sys/include/net/gnrc/rpl/p2p_dodag.h
+        lib/RIOT/sys/include/net/gnrc/rpl/p2p_structs.h
+        lib/RIOT/sys/include/net/gnrc/rpl/srh.h
+        lib/RIOT/sys/include/net/gnrc/rpl/structs.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/nd/border_router.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/ctx.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/frag.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/internal.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/iphc.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan/nd.h
+        lib/RIOT/sys/include/net/gnrc/tcp/config.h
+        lib/RIOT/sys/include/net/gnrc/tcp/tcb.h
+        lib/RIOT/sys/include/net/gnrc/icmpv6.h
+        lib/RIOT/sys/include/net/gnrc/ipv6.h
+        lib/RIOT/sys/include/net/gnrc/ndp.h
+        lib/RIOT/sys/include/net/gnrc/netapi.h
+        lib/RIOT/sys/include/net/gnrc/neterr.h
+        lib/RIOT/sys/include/net/gnrc/netif.h
+        lib/RIOT/sys/include/net/gnrc/netreg.h
+        lib/RIOT/sys/include/net/gnrc/nettest.h
+        lib/RIOT/sys/include/net/gnrc/nettype.h
+        lib/RIOT/sys/include/net/gnrc/pkt.h
+        lib/RIOT/sys/include/net/gnrc/pktbuf.h
+        lib/RIOT/sys/include/net/gnrc/pktdump.h
+        lib/RIOT/sys/include/net/gnrc/pktqueue.h
+        lib/RIOT/sys/include/net/gnrc/priority_pktqueue.h
+        lib/RIOT/sys/include/net/gnrc/rpl.h
+        lib/RIOT/sys/include/net/gnrc/sixlowpan.h
+        lib/RIOT/sys/include/net/gnrc/tcp.h
+        lib/RIOT/sys/include/net/gnrc/tftp.h
+        lib/RIOT/sys/include/net/gnrc/udp.h
+        lib/RIOT/sys/include/net/iana/portrange.h
+        lib/RIOT/sys/include/net/ipv4/addr.h
+        lib/RIOT/sys/include/net/ipv4/hdr.h
+        lib/RIOT/sys/include/net/ipv6/ext/rh.h
+        lib/RIOT/sys/include/net/ipv6/addr.h
+        lib/RIOT/sys/include/net/ipv6/ext.h
+        lib/RIOT/sys/include/net/ipv6/hdr.h
+        lib/RIOT/sys/include/net/ppp/hdr.h
+        lib/RIOT/sys/include/net/rpl/rpl_netstats.h
+        lib/RIOT/sys/include/net/sixlowpan/nd.h
+        lib/RIOT/sys/include/net/skald/eddystone.h
+        lib/RIOT/sys/include/net/skald/ibeacon.h
+        lib/RIOT/sys/include/net/sock/dns.h
+        lib/RIOT/sys/include/net/sock/ip.h
+        lib/RIOT/sys/include/net/sock/tcp.h
+        lib/RIOT/sys/include/net/sock/udp.h
+        lib/RIOT/sys/include/net/sock/util.h
+        lib/RIOT/sys/include/net/af.h
+        lib/RIOT/sys/include/net/asymcute.h
+        lib/RIOT/sys/include/net/ble.h
+        lib/RIOT/sys/include/net/coap.h
+        lib/RIOT/sys/include/net/csma_sender.h
+        lib/RIOT/sys/include/net/dns.h
+        lib/RIOT/sys/include/net/eddystone.h
+        lib/RIOT/sys/include/net/emcute.h
+        lib/RIOT/sys/include/net/ethernet.h
+        lib/RIOT/sys/include/net/ethertype.h
+        lib/RIOT/sys/include/net/eui48.h
+        lib/RIOT/sys/include/net/eui64.h
+        lib/RIOT/sys/include/net/fib.h
+        lib/RIOT/sys/include/net/gcoap.h
+        lib/RIOT/sys/include/net/gnrc.h
+        lib/RIOT/sys/include/net/icmp.h
+        lib/RIOT/sys/include/net/icmpv6.h
+        lib/RIOT/sys/include/net/ieee802154.h
+        lib/RIOT/sys/include/net/inet_csum.h
+        lib/RIOT/sys/include/net/ipv4.h
+        lib/RIOT/sys/include/net/ipv6.h
+        lib/RIOT/sys/include/net/l2filter.h
+        lib/RIOT/sys/include/net/lora.h
+        lib/RIOT/sys/include/net/loramac.h
+        lib/RIOT/sys/include/net/mqttsn.h
+        lib/RIOT/sys/include/net/nanocoap.h
+        lib/RIOT/sys/include/net/nanocoap_sock.h
+        lib/RIOT/sys/include/net/ndp.h
+        lib/RIOT/sys/include/net/netdev_test.h
+        lib/RIOT/sys/include/net/netif.h
+        lib/RIOT/sys/include/net/netopt.h
+        lib/RIOT/sys/include/net/netstats.h
+        lib/RIOT/sys/include/net/ntp_packet.h
+        lib/RIOT/sys/include/net/packet.h
+        lib/RIOT/sys/include/net/ppptype.h
+        lib/RIOT/sys/include/net/protnum.h
+        lib/RIOT/sys/include/net/sixlowpan.h
+        lib/RIOT/sys/include/net/skald.h
+        lib/RIOT/sys/include/net/sntp.h
+        lib/RIOT/sys/include/net/sock.h
+        lib/RIOT/sys/include/net/tcp.h
+        lib/RIOT/sys/include/net/udp.h
+        lib/RIOT/sys/include/net/uhcp.h
+        lib/RIOT/sys/include/net/zep.h
+        lib/RIOT/sys/include/riotboot/hdr.h
+        lib/RIOT/sys/include/riotboot/slot.h
+        lib/RIOT/sys/include/xtimer/implementation.h
+        lib/RIOT/sys/include/xtimer/tick_conversion.h
+        lib/RIOT/sys/include/analog_util.h
+        lib/RIOT/sys/include/auto_init.h
+        lib/RIOT/sys/include/base64.h
+        lib/RIOT/sys/include/bcd.h
+        lib/RIOT/sys/include/benchmark.h
+        lib/RIOT/sys/include/bitfield.h
+        lib/RIOT/sys/include/bloom.h
+        lib/RIOT/sys/include/cb_mux.h
+        lib/RIOT/sys/include/color.h
+        lib/RIOT/sys/include/div.h
+        lib/RIOT/sys/include/eepreg.h
+        lib/RIOT/sys/include/embUnit.h
+        lib/RIOT/sys/include/event.h
+        lib/RIOT/sys/include/evtimer.h
+        lib/RIOT/sys/include/evtimer_msg.h
+        lib/RIOT/sys/include/fmt.h
+        lib/RIOT/sys/include/hashes.h
+        lib/RIOT/sys/include/iolist.h
+        lib/RIOT/sys/include/isrpipe.h
+        lib/RIOT/sys/include/luid.h
+        lib/RIOT/sys/include/matstat.h
+        lib/RIOT/sys/include/memarray.h
+        lib/RIOT/sys/include/mineplex.h
+        lib/RIOT/sys/include/od.h
+        lib/RIOT/sys/include/phydat.h
+        lib/RIOT/sys/include/pipe.h
+        lib/RIOT/sys/include/pm_layered.h
+        lib/RIOT/sys/include/ps.h
+        lib/RIOT/sys/include/puf_sram.h
+        lib/RIOT/sys/include/random.h
+        lib/RIOT/sys/include/saul_reg.h
+        lib/RIOT/sys/include/sema.h
+        lib/RIOT/sys/include/seq.h
+        lib/RIOT/sys/include/shell.h
+        lib/RIOT/sys/include/shell_commands.h
+        lib/RIOT/sys/include/stdio_base.h
+        lib/RIOT/sys/include/stdio_rtt.h
+        lib/RIOT/sys/include/stdio_uart.h
+        lib/RIOT/sys/include/timex.h
+        lib/RIOT/sys/include/tm.h
+        lib/RIOT/sys/include/trickle.h
+        lib/RIOT/sys/include/tsrb.h
+        lib/RIOT/sys/include/ubjson.h
+        lib/RIOT/sys/include/universal_address.h
+        lib/RIOT/sys/include/utlist.h
+        lib/RIOT/sys/include/uuid.h
+        lib/RIOT/sys/include/vfs.h
+        lib/RIOT/sys/include/xtimer.h
+        lib/RIOT/sys/iolist/iolist.c
+        lib/RIOT/sys/isrpipe/isrpipe.c
+        lib/RIOT/sys/libc/include/sys/uio.h
+        lib/RIOT/sys/log/log_printfnoformat/log_module.h
+        lib/RIOT/sys/luid/luid.c
+        lib/RIOT/sys/matstat/matstat.c
+        lib/RIOT/sys/memarray/memarray.c
+        lib/RIOT/sys/mineplex/mineplex.c
+        lib/RIOT/sys/net/application_layer/asymcute/asymcute.c
+        lib/RIOT/sys/net/application_layer/cord/common/cord_common.c
+        lib/RIOT/sys/net/application_layer/cord/ep/cord_ep.c
+        lib/RIOT/sys/net/application_layer/cord/ep/cord_ep_standalone.c
+        lib/RIOT/sys/net/application_layer/cord/epsim/cord_epsim.c
+        lib/RIOT/sys/net/application_layer/cord/epsim/cord_epsim_standalone.c
+        lib/RIOT/sys/net/application_layer/dns/dns.c
+        lib/RIOT/sys/net/application_layer/emcute/emcute.c
+        lib/RIOT/sys/net/application_layer/emcute/emcute_internal.h
+        lib/RIOT/sys/net/application_layer/emcute/emcute_str.c
+        lib/RIOT/sys/net/application_layer/gcoap/gcoap.c
+        lib/RIOT/sys/net/application_layer/nanocoap/nanocoap.c
+        lib/RIOT/sys/net/application_layer/nanocoap/sock.c
+        lib/RIOT/sys/net/application_layer/sntp/sntp.c
+        lib/RIOT/sys/net/application_layer/uhcp/uhcp.c
+        lib/RIOT/sys/net/application_layer/uhcp/uhcpc.c
+        lib/RIOT/sys/net/ble/bluetil/bluetil_ad/bluetil_ad.c
+        lib/RIOT/sys/net/crosslayer/inet_csum/inet_csum.c
+        lib/RIOT/sys/net/crosslayer/netopt/netopt.c
+        lib/RIOT/sys/net/gnrc/application_layer/tftp/gnrc_tftp.c
+        lib/RIOT/sys/net/gnrc/application_layer/uhcpc/gnrc_uhcpc.c
+        lib/RIOT/sys/net/gnrc/link_layer/gnrc_mac/internal.c
+        lib/RIOT/sys/net/gnrc/link_layer/gnrc_mac/timeout.c
+        lib/RIOT/sys/net/gnrc/link_layer/gomach/include/gomach_internal.h
+        lib/RIOT/sys/net/gnrc/link_layer/gomach/gomach.c
+        lib/RIOT/sys/net/gnrc/link_layer/gomach/gomach_internal.c
+        lib/RIOT/sys/net/gnrc/link_layer/gomach/timeout.c
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/include/lwmac_internal.h
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/include/rx_state_machine.h
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/include/tx_state_machine.h
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/lwmac.c
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/lwmac_internal.c
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/rx_state_machine.c
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/timeout.c
+        lib/RIOT/sys/net/gnrc/link_layer/lwmac/tx_state_machine.c
+        lib/RIOT/sys/net/gnrc/netapi/gnrc_netapi.c
+        lib/RIOT/sys/net/gnrc/netif/ethernet/gnrc_netif_ethernet.c
+        lib/RIOT/sys/net/gnrc/netif/hdr/gnrc_netif_hdr.c
+        lib/RIOT/sys/net/gnrc/netif/hdr/gnrc_netif_hdr_print.c
+        lib/RIOT/sys/net/gnrc/netif/ieee802154/gnrc_netif_ieee802154.c
+        lib/RIOT/sys/net/gnrc/netif/include/netif_types.h
+        lib/RIOT/sys/net/gnrc/netif/_netif.c
+        lib/RIOT/sys/net/gnrc/netif/gnrc_netif.c
+        lib/RIOT/sys/net/gnrc/netif/gnrc_netif_device_type.c
+        lib/RIOT/sys/net/gnrc/netif/gnrc_netif_raw.c
+        lib/RIOT/sys/net/gnrc/netreg/gnrc_netreg.c
+        lib/RIOT/sys/net/gnrc/nettest/gnrc_nettest.c
+        lib/RIOT/sys/net/gnrc/network_layer/icmpv6/echo/gnrc_icmpv6_echo.c
+        lib/RIOT/sys/net/gnrc/network_layer/icmpv6/error/gnrc_icmpv6_error.c
+        lib/RIOT/sys/net/gnrc/network_layer/icmpv6/gnrc_icmpv6.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/blacklist/gnrc_ipv6_blacklist.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/blacklist/gnrc_ipv6_blacklist_print.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/ext/rh/gnrc_ipv6_ext_rh.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/ext/gnrc_ipv6_ext.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/hdr/gnrc_ipv6_hdr.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6ln.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6ln.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6lr.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-6lr.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-arsm.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-arsm.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-internal.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-internal.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-router.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-router.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-slaac.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/_nib-slaac.h
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_abr.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_ft.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_nc.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/nib/nib_pl.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/whitelist/gnrc_ipv6_whitelist.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/whitelist/gnrc_ipv6_whitelist_print.c
+        lib/RIOT/sys/net/gnrc/network_layer/ipv6/gnrc_ipv6.c
+        lib/RIOT/sys/net/gnrc/network_layer/ndp/gnrc_ndp.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/ctx/gnrc_sixlowpan_ctx.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/gnrc_sixlowpan_frag.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/rbuf.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/frag/rbuf.h
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/iphc/gnrc_sixlowpan_iphc.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/nd/router/gnrc_sixlowpan_nd_router.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/nd/gnrc_sixlowpan_nd.c
+        lib/RIOT/sys/net/gnrc/network_layer/sixlowpan/gnrc_sixlowpan.c
+        lib/RIOT/sys/net/gnrc/pkt/gnrc_pkt.c
+        lib/RIOT/sys/net/gnrc/pktbuf/gnrc_pktbuf.c
+        lib/RIOT/sys/net/gnrc/pktbuf_malloc/gnrc_pktbuf_malloc.c
+        lib/RIOT/sys/net/gnrc/pktbuf_static/gnrc_pktbuf_static.c
+        lib/RIOT/sys/net/gnrc/pktdump/gnrc_pktdump.c
+        lib/RIOT/sys/net/gnrc/priority_pktqueue/priority_pktqueue.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/globals.h
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/netstats.h
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_internal/validation.h
+        lib/RIOT/sys/net/gnrc/routing/rpl/p2p/gnrc_rpl_p2p.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/p2p/gnrc_rpl_p2p_dodag.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/srh/gnrc_rpl_srh.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_auto_init.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_control_messages.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_dodag.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_of_manager.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/gnrc_rpl_validation.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/of0.c
+        lib/RIOT/sys/net/gnrc/routing/rpl/of0.h
+        lib/RIOT/sys/net/gnrc/sock/include/gnrc_sock_internal.h
+        lib/RIOT/sys/net/gnrc/sock/include/sock_types.h
+        lib/RIOT/sys/net/gnrc/sock/ip/gnrc_sock_ip.c
+        lib/RIOT/sys/net/gnrc/sock/udp/gnrc_sock_udp.c
+        lib/RIOT/sys/net/gnrc/sock/gnrc_sock.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/common.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/eventloop.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/fsm.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/option.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/pkt.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/internal/rcvbuf.h
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_eventloop.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_fsm.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_option.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_pkt.c
+        lib/RIOT/sys/net/gnrc/transport_layer/tcp/gnrc_tcp_rcvbuf.c
+        lib/RIOT/sys/net/gnrc/transport_layer/udp/gnrc_udp.c
+        lib/RIOT/sys/net/link_layer/csma_sender/csma_sender.c
+        lib/RIOT/sys/net/link_layer/ieee802154/ieee802154.c
+        lib/RIOT/sys/net/link_layer/l2filter/l2filter.c
+        lib/RIOT/sys/net/netdev_test/netdev_test.c
+        lib/RIOT/sys/net/network_layer/fib/fib.c
+        lib/RIOT/sys/net/network_layer/icmpv6/icmpv6_hdr_print.c
+        lib/RIOT/sys/net/network_layer/ipv4/addr/ipv4_addr_from_str.c
+        lib/RIOT/sys/net/network_layer/ipv4/addr/ipv4_addr_to_str.c
+        lib/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr.c
+        lib/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr_from_str.c
+        lib/RIOT/sys/net/network_layer/ipv6/addr/ipv6_addr_to_str.c
+        lib/RIOT/sys/net/network_layer/ipv6/hdr/ipv6_hdr_print.c
+        lib/RIOT/sys/net/network_layer/sixlowpan/sixlowpan_print.c
+        lib/RIOT/sys/net/routing/nhdp/iib_table.c
+        lib/RIOT/sys/net/routing/nhdp/iib_table.h
+        lib/RIOT/sys/net/routing/nhdp/lib_table.c
+        lib/RIOT/sys/net/routing/nhdp/lib_table.h
+        lib/RIOT/sys/net/routing/nhdp/nhdp.c
+        lib/RIOT/sys/net/routing/nhdp/nhdp.h
+        lib/RIOT/sys/net/routing/nhdp/nhdp_address.c
+        lib/RIOT/sys/net/routing/nhdp/nhdp_address.h
+        lib/RIOT/sys/net/routing/nhdp/nhdp_metric.h
+        lib/RIOT/sys/net/routing/nhdp/nhdp_reader.c
+        lib/RIOT/sys/net/routing/nhdp/nhdp_reader.h
+        lib/RIOT/sys/net/routing/nhdp/nhdp_writer.c
+        lib/RIOT/sys/net/routing/nhdp/nhdp_writer.h
+        lib/RIOT/sys/net/routing/nhdp/nib_table.c
+        lib/RIOT/sys/net/routing/nhdp/nib_table.h
+        lib/RIOT/sys/net/skald/skald.c
+        lib/RIOT/sys/net/skald/skald_eddystone.c
+        lib/RIOT/sys/net/skald/skald_ibeacon.c
+        lib/RIOT/sys/net/sock/sock_util.c
+        lib/RIOT/sys/net/transport_layer/tcp/tcp_hdr_print.c
+        lib/RIOT/sys/net/transport_layer/udp/udp_hdr_print.c
+        lib/RIOT/sys/newlib_syscalls_default/syscalls.c
+        lib/RIOT/sys/od/od.c
+        lib/RIOT/sys/oneway-malloc/include/malloc.h
+        lib/RIOT/sys/oneway-malloc/oneway-malloc.c
+        lib/RIOT/sys/phydat/phydat.c
+        lib/RIOT/sys/phydat/phydat_str.c
+        lib/RIOT/sys/pipe/pipe.c
+        lib/RIOT/sys/pipe/pipe_dynamic.c
+        lib/RIOT/sys/pm_layered/pm.c
+        lib/RIOT/sys/posix/include/arpa/inet.h
+        lib/RIOT/sys/posix/include/netinet/in.h
+        lib/RIOT/sys/posix/include/sys/bytes.h
+        lib/RIOT/sys/posix/include/sys/socket.h
+        lib/RIOT/sys/posix/include/sys/statvfs.h
+        lib/RIOT/sys/posix/include/fcntl.h
+        lib/RIOT/sys/posix/include/semaphore.h
+        lib/RIOT/sys/posix/pthread/include/pthread.h
+        lib/RIOT/sys/posix/pthread/include/pthread_barrier.h
+        lib/RIOT/sys/posix/pthread/include/pthread_cancellation.h
+        lib/RIOT/sys/posix/pthread/include/pthread_cleanup.h
+        lib/RIOT/sys/posix/pthread/include/pthread_cond.h
+        lib/RIOT/sys/posix/pthread/include/pthread_mutex.h
+        lib/RIOT/sys/posix/pthread/include/pthread_mutex_attr.h
+        lib/RIOT/sys/posix/pthread/include/pthread_once.h
+        lib/RIOT/sys/posix/pthread/include/pthread_rwlock.h
+        lib/RIOT/sys/posix/pthread/include/pthread_rwlock_attr.h
+        lib/RIOT/sys/posix/pthread/include/pthread_scheduling.h
+        lib/RIOT/sys/posix/pthread/include/pthread_spin.h
+        lib/RIOT/sys/posix/pthread/include/pthread_threading.h
+        lib/RIOT/sys/posix/pthread/include/pthread_threading_attr.h
+        lib/RIOT/sys/posix/pthread/include/pthread_tls.h
+        lib/RIOT/sys/posix/pthread/pthread.c
+        lib/RIOT/sys/posix/pthread/pthread_attr.c
+        lib/RIOT/sys/posix/pthread/pthread_barrier.c
+        lib/RIOT/sys/posix/pthread/pthread_barrierattr.c
+        lib/RIOT/sys/posix/pthread/pthread_cond.c
+        lib/RIOT/sys/posix/pthread/pthread_mutex.c
+        lib/RIOT/sys/posix/pthread/pthread_mutex_attr.c
+        lib/RIOT/sys/posix/pthread/pthread_once.c
+        lib/RIOT/sys/posix/pthread/pthread_rwlock.c
+        lib/RIOT/sys/posix/pthread/pthread_rwlock_attr.c
+        lib/RIOT/sys/posix/pthread/pthread_spin.c
+        lib/RIOT/sys/posix/pthread/pthread_tls.c
+        lib/RIOT/sys/posix/semaphore/posix_semaphore.c
+        lib/RIOT/sys/posix/sockets/posix_sockets.c
+        lib/RIOT/sys/posix/time/posix_time.c
+        lib/RIOT/sys/posix/inet.c
+        lib/RIOT/sys/ps/ps.c
+        lib/RIOT/sys/puf_sram/puf_sram.c
+        lib/RIOT/sys/quad_math/adddi3.c
+        lib/RIOT/sys/quad_math/anddi3.c
+        lib/RIOT/sys/quad_math/ashldi3.c
+        lib/RIOT/sys/quad_math/ashrdi3.c
+        lib/RIOT/sys/quad_math/cmpdi2.c
+        lib/RIOT/sys/quad_math/divdi3.c
+        lib/RIOT/sys/quad_math/fixdfdi.c
+        lib/RIOT/sys/quad_math/fixsfdi.c
+        lib/RIOT/sys/quad_math/fixunsdfdi.c
+        lib/RIOT/sys/quad_math/fixunssfdi.c
+        lib/RIOT/sys/quad_math/floatdidf.c
+        lib/RIOT/sys/quad_math/floatdisf.c
+        lib/RIOT/sys/quad_math/floatunsdidf.c
+        lib/RIOT/sys/quad_math/iordi3.c
+        lib/RIOT/sys/quad_math/lshldi3.c
+        lib/RIOT/sys/quad_math/lshrdi3.c
+        lib/RIOT/sys/quad_math/moddi3.c
+        lib/RIOT/sys/quad_math/muldi3.c
+        lib/RIOT/sys/quad_math/negdi2.c
+        lib/RIOT/sys/quad_math/notdi2.c
+        lib/RIOT/sys/quad_math/qdivrem.c
+        lib/RIOT/sys/quad_math/quad.h
+        lib/RIOT/sys/quad_math/subdi3.c
+        lib/RIOT/sys/quad_math/ucmpdi2.c
+        lib/RIOT/sys/quad_math/udivdi3.c
+        lib/RIOT/sys/quad_math/umoddi3.c
+        lib/RIOT/sys/quad_math/xordi3.c
+        lib/RIOT/sys/random/fortuna/fortuna.c
+        lib/RIOT/sys/random/fortuna/fortuna.h
+        lib/RIOT/sys/random/tinymt32/tinymt32.c
+        lib/RIOT/sys/random/tinymt32/tinymt32.h
+        lib/RIOT/sys/random/fortuna.c
+        lib/RIOT/sys/random/mersenne.c
+        lib/RIOT/sys/random/minstd.c
+        lib/RIOT/sys/random/musl_lcg.c
+        lib/RIOT/sys/random/random.c
+        lib/RIOT/sys/random/sha1prng.c
+        lib/RIOT/sys/random/tinymt32.c
+        lib/RIOT/sys/random/xorshift.c
+        lib/RIOT/sys/riotboot/hdr.c
+        lib/RIOT/sys/riotboot/slot.c
+        lib/RIOT/sys/saul_reg/saul_reg.c
+        lib/RIOT/sys/sema/sema.c
+        lib/RIOT/sys/seq/seq.c
+        lib/RIOT/sys/shell/commands/sc_at30tse75x.c
+        lib/RIOT/sys/shell/commands/sc_blacklist.c
+        lib/RIOT/sys/shell/commands/sc_can.c
+        lib/RIOT/sys/shell/commands/sc_ccnl.c
+        lib/RIOT/sys/shell/commands/sc_cord_ep.c
+        lib/RIOT/sys/shell/commands/sc_disk.c
+        lib/RIOT/sys/shell/commands/sc_fib.c
+        lib/RIOT/sys/shell/commands/sc_gnrc_6ctx.c
+        lib/RIOT/sys/shell/commands/sc_gnrc_ipv6_nib.c
+        lib/RIOT/sys/shell/commands/sc_gnrc_netif.c
+        lib/RIOT/sys/shell/commands/sc_gnrc_pktbuf.c
+        lib/RIOT/sys/shell/commands/sc_gnrc_rpl.c
+        lib/RIOT/sys/shell/commands/sc_heap.c
+        lib/RIOT/sys/shell/commands/sc_icmpv6_echo.c
+        lib/RIOT/sys/shell/commands/sc_ps.c
+        lib/RIOT/sys/shell/commands/sc_random.c
+        lib/RIOT/sys/shell/commands/sc_rtc.c
+        lib/RIOT/sys/shell/commands/sc_saul_reg.c
+        lib/RIOT/sys/shell/commands/sc_sht1x.c
+        lib/RIOT/sys/shell/commands/sc_sntp.c
+        lib/RIOT/sys/shell/commands/sc_sys.c
+        lib/RIOT/sys/shell/commands/sc_vfs.c
+        lib/RIOT/sys/shell/commands/sc_whitelist.c
+        lib/RIOT/sys/shell/commands/shell_commands.c
+        lib/RIOT/sys/shell/shell.c
+        lib/RIOT/sys/ssp/ssp.c
+        lib/RIOT/sys/stdio_rtt/stdio_rtt.c
+        lib/RIOT/sys/stdio_uart/stdio_uart.c
+        lib/RIOT/sys/timex/timex.c
+        lib/RIOT/sys/timex/timex_to_str.c
+        lib/RIOT/sys/timex/tm.c
+        lib/RIOT/sys/trickle/trickle.c
+        lib/RIOT/sys/tsrb/tsrb.c
+        lib/RIOT/sys/ubjson/ubjson-internal.h
+        lib/RIOT/sys/ubjson/ubjson-read.c
+        lib/RIOT/sys/ubjson/ubjson-write.c
+        lib/RIOT/sys/universal_address/universal_address.c
+        lib/RIOT/sys/uuid/uuid.c
+        lib/RIOT/sys/vfs/vfs.c
+        lib/RIOT/sys/vfs/vfs_stdio.c
+        lib/RIOT/sys/xtimer/xtimer.c
+        lib/RIOT/sys/xtimer/xtimer_core.c
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_armcc.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_armclang.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_iccarm.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_armv8mbl.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_armv8mml.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm0.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm0plus.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm1.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm23.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm3.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm33.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_cm7.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_sc000.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/core_sc300.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/mpu_armv8.h
+        lib/RIOT/cpu/cortexm_common/include/vendor/tz_context.h
+        lib/RIOT/cpu/cortexm_common/include/bit.h
+        lib/RIOT/cpu/cortexm_common/include/cpu.h
+        lib/RIOT/cpu/cortexm_common/include/cpu_conf_common.h
+        lib/RIOT/cpu/cortexm_common/include/mpu.h
+        lib/RIOT/cpu/cortexm_common/include/vectors_cortexm.h
+        lib/RIOT/cpu/cortexm_common/ldscripts/cortexm.ld
+        lib/RIOT/cpu/cortexm_common/ldscripts/cortexm_base.ld
+        lib/RIOT/cpu/cortexm_common/ldscripts/multislot.ld
+        lib/RIOT/cpu/cortexm_common/periph/Makefile
+        lib/RIOT/cpu/cortexm_common/periph/pm.c
+        lib/RIOT/cpu/cortexm_common/cortexm_init.c
+        lib/RIOT/cpu/cortexm_common/irq_arch.c
+        lib/RIOT/cpu/cortexm_common/Makefile
+        lib/RIOT/cpu/cortexm_common/Makefile.features
+        lib/RIOT/cpu/cortexm_common/Makefile.include
+        lib/RIOT/cpu/cortexm_common/mpu.c
+        lib/RIOT/cpu/cortexm_common/panic.c
+        lib/RIOT/cpu/cortexm_common/thread_arch.c
+        lib/RIOT/cpu/cortexm_common/vectors_cortexm.c
         src/main.cpp)
